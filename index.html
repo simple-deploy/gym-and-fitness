@@ -1,1090 +1,2882 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FORGE Fitness — Premium Gym & Training Studio | Melbourne</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black:  #080808;
-    --dark:   #111111;
-    --card:   #181818;
-    --orange: #f05a1a;
-    --hot:    #ff6d2e;
-    --white:  #ffffff;
-    --off:    #f0ede8;
-    --muted:  #888888;
-    --border: #222222;
-    --gap:    88px;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORGE Fitness — Premium Gym & Training Studio | Melbourne</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --black: #080808;
+      --dark: #111111;
+      --card: #181818;
+      --orange: #f05a1a;
+      --hot: #ff6d2e;
+      --white: #ffffff;
+      --off: #f0ede8;
+      --muted: #888888;
+      --border: #222222;
+      --gap: 88px;
+    }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'Barlow',sans-serif; background:var(--black); color:var(--white); font-size:16px; line-height:1.7; }
-  img { display:block; width:100%; object-fit:cover; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  ::-webkit-scrollbar { width:3px; }
-  ::-webkit-scrollbar-track { background:var(--black); }
-  ::-webkit-scrollbar-thumb { background:var(--orange); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ── NAV ── */
-  nav {
-    position:fixed; top:0; left:0; right:0; z-index:999;
-    height:68px; display:flex; align-items:center; justify-content:space-between;
-    padding:0 60px;
-    background:rgba(8,8,8,0.96); backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(240,90,26,0.2);
-  }
-  .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:4px; color:var(--white); }
-  .nav-logo span { color:var(--orange); }
-  .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
-  .nav-links a { color:#888; text-decoration:none; font-size:0.76rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; transition:color .2s; }
-  .nav-links a:hover, .nav-links a.active { color:var(--white); }
-  .nav-cta {
-    background:var(--orange) !important; color:var(--white) !important;
-    padding:10px 26px;
-    clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
-    font-weight:700 !important; transition:background .2s !important;
-  }
-  .nav-cta:hover { background:var(--hot) !important; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.7;
+    }
 
-  /* ── PAGES ── */
-  .page { display:none; padding-top:68px; }
-  .page.active { display:block; animation:fadeUp .35s ease both; }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
 
-  /* ── BUTTONS ── */
-  .btn-fire {
-    background:var(--orange); color:var(--white); border:none;
-    padding:14px 36px; font-family:'Barlow',sans-serif;
-    font-size:0.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-    cursor:pointer;
-    clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
-    transition:background .2s, transform .15s;
-  }
-  .btn-fire:hover { background:var(--hot); transform:translateY(-2px); }
-  .btn-ghost {
-    background:transparent; color:var(--white);
-    border:1px solid rgba(255,255,255,0.25);
-    padding:14px 36px; font-family:'Barlow',sans-serif;
-    font-size:0.8rem; font-weight:600; letter-spacing:2px; text-transform:uppercase;
-    cursor:pointer; transition:border-color .2s, color .2s;
-  }
-  .btn-ghost:hover { border-color:var(--orange); color:var(--orange); }
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
 
-  /* ── SECTION PRIMITIVES ── */
-  .sec { padding:var(--gap) 60px; }
-  .sec-tag {
-    display:inline-flex; align-items:center; gap:10px;
-    color:var(--orange); font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; font-weight:700;
-    margin-bottom:14px;
-  }
-  .sec-tag::before { content:''; width:28px; height:2px; background:var(--orange); display:block; }
-  .sec-h {
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(2.6rem,4.5vw,3.8rem); letter-spacing:2px; line-height:1;
-    color:var(--white); margin-bottom:16px;
-  }
-  .sec-h .o { color:var(--orange); }
-  .sec-sub { color:#777; max-width:520px; font-weight:300; font-size:0.95rem; }
+    ::-webkit-scrollbar-track {
+      background: var(--black);
+    }
 
-  /* ══════════════════════ HERO ══════════════════════ */
-  .hero {
-    position:relative; min-height:calc(100vh - 68px);
-    display:flex; align-items:center; overflow:hidden;
-  }
-  .hero-bg {
-    position:absolute; inset:0;
-    background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=85&auto=format&fit=crop');
-    background-size:cover; background-position:center;
-    animation:kenBurns 16s ease-in-out infinite alternate;
-  }
-  @keyframes kenBurns { from{transform:scale(1.06)} to{transform:scale(1.0)} }
-  .hero-overlay {
-    position:absolute; inset:0;
-    background:linear-gradient(105deg, rgba(8,8,8,0.92) 45%, rgba(8,8,8,0.4) 100%);
-  }
-  .hero-grain {
-    position:absolute; inset:0; opacity:0.03;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .hero-content {
-    position:relative; z-index:2;
-    padding:80px 60px 160px;
-    max-width:780px;
-  }
-  .hero-pill {
-    display:inline-flex; align-items:center; gap:10px;
-    border:1px solid rgba(240,90,26,0.4);
-    color:var(--orange); font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; font-weight:700;
-    padding:8px 20px; border-radius:2px; margin-bottom:30px;
-  }
-  .hero-pill::before { content:''; width:6px; height:6px; background:var(--orange); border-radius:50%; animation:pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
-  .hero h1 {
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(4rem,8vw,7.5rem);
-    line-height:0.88; letter-spacing:1px;
-    margin-bottom:28px; color:var(--white);
-  }
-  .hero h1 .outline { -webkit-text-stroke:2px rgba(255,255,255,0.2); color:transparent; }
-  .hero h1 .fire { color:var(--orange); }
-  .hero p { color:rgba(255,255,255,0.55); font-size:1.05rem; font-weight:300; max-width:480px; margin-bottom:44px; line-height:1.85; }
-  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+    ::-webkit-scrollbar-thumb {
+      background: var(--orange);
+    }
 
-  /* hero bottom stats bar */
-  .hero-stats-bar {
-    position:absolute; bottom:0; left:0; right:0; z-index:3;
-    background:rgba(8,8,8,0.85); backdrop-filter:blur(10px);
-    border-top:1px solid rgba(240,90,26,0.2);
-    display:grid; grid-template-columns:repeat(4,1fr);
-    padding:0;
-  }
-  .hsb-cell {
-    padding:22px 36px; border-right:1px solid var(--border);
-    display:flex; align-items:center; gap:16px;
-  }
-  .hsb-cell:last-child { border:none; }
-  .hsb-icon { font-size:1.6rem; }
-  .hsb-num { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; color:var(--orange); line-height:1; display:block; }
-  .hsb-lbl { color:#555; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; }
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      background: rgba(8, 8, 8, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(240, 90, 26, 0.2);
+    }
 
-  /* ══════════════════════ CLASSES ══════════════════════ */
-  .classes-sec { background:var(--dark); }
-  .classes-grid {
-    display:grid; grid-template-columns:repeat(3,1fr);
-    gap:3px; margin-top:52px;
-  }
-  .class-card {
-    position:relative; overflow:hidden; cursor:pointer;
-    aspect-ratio:3/4;
-  }
-  .class-card img { height:100%; transition:transform .6s ease; }
-  .class-card:hover img { transform:scale(1.06); }
-  .class-overlay {
-    position:absolute; inset:0;
-    background:linear-gradient(to top, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.2) 60%, transparent 100%);
-    transition:background .3s;
-  }
-  .class-card:hover .class-overlay {
-    background:linear-gradient(to top, rgba(240,90,26,0.85) 0%, rgba(8,8,8,0.3) 70%, transparent 100%);
-  }
-  .class-info {
-    position:absolute; bottom:0; left:0; right:0;
-    padding:28px 26px;
-  }
-  .class-tag {
-    display:inline-block; background:var(--orange); color:var(--white);
-    font-size:0.62rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-    padding:4px 12px; border-radius:2px; margin-bottom:12px;
-  }
-  .class-info h3 { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:2px; color:var(--white); margin-bottom:6px; }
-  .class-info p { color:rgba(255,255,255,0.7); font-size:0.82rem; font-weight:300; }
-  .class-meta { display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
-  .class-pill { background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.8); font-size:0.65rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 12px; border-radius:2px; }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: var(--white);
+    }
 
-  /* ══════════════════════ FIRE BANNER ══════════════════════ */
-  .fire-banner {
-    position:relative; overflow:hidden;
-    background:var(--orange); padding:64px 60px;
-    display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
-  }
-  .fire-banner::before {
-    content:'NO EXCUSES';
-    position:absolute; right:-20px; top:50%; transform:translateY(-50%);
-    font-family:'Bebas Neue',sans-serif; font-size:9rem; color:rgba(0,0,0,0.08);
-    letter-spacing:8px; white-space:nowrap; user-select:none;
-  }
-  .fire-banner h2 { font-family:'Bebas Neue',sans-serif; font-size:3rem; letter-spacing:2px; color:var(--black); line-height:1; }
-  .fire-banner p { color:rgba(0,0,0,0.6); margin-top:8px; font-size:1rem; font-weight:400; }
-  .btn-dark { background:var(--black); color:var(--white); border:none; padding:14px 36px; font-family:'Barlow',sans-serif; font-size:0.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%); transition:background .2s; flex-shrink:0; }
-  .btn-dark:hover { background:#1a1a1a; }
+    .nav-logo span {
+      color: var(--orange);
+    }
 
-  /* ══════════════════════ TRAINERS ══════════════════════ */
-  .trainers-sec { background:var(--black); }
-  .trainers-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin-top:52px; }
-  .trainer-card { position:relative; overflow:hidden; }
-  .trainer-card img { height:380px; transition:transform .5s; }
-  .trainer-card:hover img { transform:scale(1.05); }
-  .trainer-overlay {
-    position:absolute; inset:0;
-    background:linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.1) 55%, transparent 100%);
-  }
-  .trainer-info { position:absolute; bottom:0; left:0; right:0; padding:22px 20px; }
-  .trainer-bar { width:28px; height:3px; background:var(--orange); margin-bottom:10px; }
-  .trainer-info h3 { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:1.5px; color:var(--white); margin-bottom:2px; }
-  .trainer-spec { color:var(--orange); font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin-bottom:6px; }
-  .trainer-info p { color:rgba(255,255,255,0.55); font-size:0.78rem; font-weight:300; }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
 
-  /* ══════════════════════ SPLIT FACILITY ══════════════════════ */
-  .split { display:grid; grid-template-columns:1fr 1fr; }
-  .split-img { overflow:hidden; min-height:520px; }
-  .split-img img { height:100%; object-fit:cover; }
-  .split-body { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; background:var(--dark); }
-  .feat-rows { margin-top:32px; display:flex; flex-direction:column; gap:3px; }
-  .feat-row {
-    display:flex; align-items:center; gap:20px;
-    background:var(--card); padding:18px 22px;
-    border-left:3px solid transparent; transition:border-color .2s, background .2s;
-  }
-  .feat-row:hover { border-left-color:var(--orange); background:#1e1e1e; }
-  .feat-row-icon { font-size:1.3rem; flex-shrink:0; }
-  .feat-row-text h4 { color:var(--white); font-size:0.9rem; font-weight:600; margin-bottom:2px; }
-  .feat-row-text p { color:#666; font-size:0.8rem; font-weight:300; }
+    .nav-links a {
+      color: #888;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
 
-  /* ══════════════════════ MEMBERSHIP ══════════════════════ */
-  .membership-sec { background:var(--dark); }
-  .plans-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-top:52px; }
-  .plan-card { background:var(--card); padding:44px 36px; position:relative; transition:transform .3s; }
-  .plan-card:hover { transform:translateY(-4px); }
-  .plan-card.best { background:var(--orange); transform:scale(1.02); }
-  .plan-card.best:hover { transform:scale(1.02) translateY(-4px); }
-  .plan-badge { position:absolute; top:-1px; right:24px; background:var(--black); color:var(--orange); font-size:0.62rem; letter-spacing:2px; text-transform:uppercase; font-weight:700; padding:5px 14px; }
-  .plan-card.best .plan-badge { background:var(--white); }
-  .plan-name { font-family:'Bebas Neue',sans-serif; font-size:1.7rem; letter-spacing:2px; color:var(--white); }
-  .plan-card.best .plan-name { color:var(--black); }
-  .plan-price { font-family:'Bebas Neue',sans-serif; font-size:3.8rem; color:var(--white); line-height:1; margin:18px 0 6px; }
-  .plan-card.best .plan-price { color:var(--black); }
-  .plan-per { color:rgba(255,255,255,0.4); font-size:0.82rem; margin-bottom:28px; }
-  .plan-card.best .plan-per { color:rgba(0,0,0,0.5); }
-  .plan-feats { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
-  .plan-feats li { font-size:0.86rem; color:#aaa; display:flex; align-items:center; gap:10px; }
-  .plan-card.best .plan-feats li { color:rgba(0,0,0,0.7); }
-  .plan-feats li::before { content:'✓'; color:var(--orange); font-weight:700; }
-  .plan-card.best .plan-feats li::before { color:var(--black); }
-  .plan-feats li.no { opacity:.35; }
-  .plan-feats li.no::before { content:'×'; }
-  .plan-btn { width:100%; background:rgba(240,90,26,0.12); border:1px solid var(--orange); color:var(--orange); padding:14px; font-family:'Barlow',sans-serif; font-size:0.76rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:all .2s; }
-  .plan-btn:hover { background:var(--orange); color:var(--white); }
-  .plan-card.best .plan-btn { background:var(--black); border-color:var(--black); color:var(--white); }
-  .plan-card.best .plan-btn:hover { background:#222; }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+    }
 
-  /* ══════════════════════ SCHEDULE ══════════════════════ */
-  .schedule-sec { background:var(--black); }
-  .schedule-wrap { margin-top:48px; display:grid; grid-template-columns:1fr 340px; gap:3px; }
-  .schedule-table-wrap { overflow-x:auto; }
-  .sched-table { width:100%; border-collapse:collapse; }
-  .sched-table th { font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:2px; color:var(--orange); text-align:left; padding:14px 18px; border-bottom:1px solid #1e1e1e; }
-  .sched-table td { padding:16px 18px; color:#888; border-bottom:1px solid #131313; font-size:0.86rem; font-weight:300; }
-  .sched-table tr:hover td { background:#111; }
-  .sched-name { color:var(--white); font-weight:600; }
-  .lvl { display:inline-block; font-size:0.62rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 10px; border-radius:2px; }
-  .lvl-b { background:rgba(74,222,128,0.1); color:#4ade80; }
-  .lvl-i { background:rgba(240,90,26,0.1); color:var(--orange); }
-  .lvl-a { background:rgba(248,113,113,0.1); color:#f87171; }
-  .spots { color:var(--orange); font-weight:600; font-size:0.8rem; }
-  /* sidebar cta */
-  .sched-sidebar {
-    background:var(--orange); padding:40px 32px;
-    display:flex; flex-direction:column; justify-content:center;
-  }
-  .sched-sidebar h3 { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:2px; color:var(--black); line-height:1; margin-bottom:12px; }
-  .sched-sidebar p { color:rgba(0,0,0,0.65); font-size:0.88rem; font-weight:300; margin-bottom:28px; }
-  .sched-perks { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
-  .sched-perks li { color:rgba(0,0,0,0.7); font-size:0.84rem; display:flex; align-items:center; gap:8px; }
-  .sched-perks li::before { content:'✓'; font-weight:700; }
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 10px 26px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      font-weight: 700 !important;
+      transition: background .2s !important;
+    }
 
-  /* ══════════════════════ TESTIMONIALS ══════════════════════ */
-  .testi-sec { background:var(--dark); }
-  .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-top:52px; }
-  .testi-card { background:var(--card); padding:34px 30px; border-left:3px solid transparent; transition:border-color .3s; }
-  .testi-card:hover { border-left-color:var(--orange); }
-  .testi-stars { color:var(--orange); font-size:0.85rem; margin-bottom:14px; letter-spacing:2px; }
-  .testi-card p { color:#777; font-size:0.88rem; font-style:italic; font-weight:300; margin-bottom:22px; line-height:1.8; }
-  .testi-person { display:flex; align-items:center; gap:12px; }
-  .testi-av { width:42px; height:42px; border-radius:50%; overflow:hidden; flex-shrink:0; }
-  .testi-av img { height:100%; }
-  .testi-name { color:var(--white); font-weight:600; font-size:0.88rem; }
-  .testi-result { color:var(--orange); font-size:0.7rem; letter-spacing:1px; text-transform:uppercase; }
+    .nav-cta:hover {
+      background: var(--hot) !important;
+    }
 
-  /* ══════════════════════ PHOTO GRID ══════════════════════ */
-  .photo-grid {
-    display:grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 280px 280px;
-    gap:3px;
-  }
-  .pg-item { overflow:hidden; position:relative; }
-  .pg-item img { height:100%; transition:transform .5s; }
-  .pg-item:hover img { transform:scale(1.04); }
-  .pg-item.tall { grid-row:span 2; }
-  .pg-overlay {
-    position:absolute; inset:0;
-    background:rgba(8,8,8,0);
-    transition:background .3s;
-    display:flex; align-items:flex-end; padding:20px;
-  }
-  .pg-item:hover .pg-overlay { background:rgba(240,90,26,0.25); }
-  .pg-label { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:2px; color:white; opacity:0; transform:translateY(6px); transition:all .3s; }
-  .pg-item:hover .pg-label { opacity:1; transform:translateY(0); }
+    /* ── PAGES ── */
+    .page {
+      display: none;
+      padding-top: 68px;
+    }
 
-  /* ══════════════════════ WHY PAGE ══════════════════════ */
-  .wp-hero {
-    position:relative; overflow:hidden;
-    background:var(--black); padding:90px 60px 80px;
-  }
-  .wp-hero-bg {
-    position:absolute; right:0; top:0; bottom:0; width:48%;
-    background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=900&q=80&auto=format&fit=crop');
-    background-size:cover; background-position:center; opacity:0.12;
-  }
-  .wp-hero .sec-h { font-size:clamp(3rem,6vw,5rem); max-width:680px; }
-  .reasons-list { margin-top:3px; display:flex; flex-direction:column; gap:3px; }
-  .reason-row {
-    background:var(--card); padding:36px 44px;
-    display:flex; align-items:flex-start; gap:30px;
-    transition:background .25s;
-  }
-  .reason-row:hover { background:#1e1e1e; }
-  .r-num { font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:rgba(240,90,26,0.18); line-height:1; flex-shrink:0; width:68px; }
-  .r-body h3 { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:1.5px; color:var(--white); margin-bottom:8px; }
-  .r-body p { color:#666; font-size:0.88rem; font-weight:300; }
-  .proof-row { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; }
-  .proof-cell { background:var(--dark); padding:50px 40px; text-align:center; }
-  .proof-n { font-family:'Bebas Neue',sans-serif; font-size:3.2rem; color:var(--orange); display:block; margin-bottom:8px; }
-  .proof-l { color:#555; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; }
-  .equip-strip { background:var(--card); padding:70px 60px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-  .equip-left h2 { font-family:'Bebas Neue',sans-serif; font-size:2.5rem; letter-spacing:2px; color:var(--white); margin-bottom:12px; }
-  .equip-left p { color:#666; font-weight:300; max-width:460px; }
-  .equip-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
-  .etag { background:rgba(240,90,26,0.08); border:1px solid rgba(240,90,26,0.2); color:var(--orange); font-size:0.72rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:7px 16px; }
+    .page.active {
+      display: block;
+      animation: fadeUp .35s ease both;
+    }
 
-  /* ══════════════════════ SERVICES PAGE ══════════════════════ */
-  .svcs-hero {
-    position:relative; overflow:hidden;
-    background:var(--dark); padding:90px 60px 80px;
-    border-bottom:1px solid var(--border);
-  }
-  .svcs-hero-bg {
-    position:absolute; right:0; top:0; bottom:0; width:45%;
-    background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80&auto=format&fit=crop');
-    background-size:cover; background-position:center top; opacity:0.1;
-  }
-  .svcs-hero .sec-h { font-size:clamp(3rem,5.5vw,4.5rem); max-width:600px; }
-  /* image + text service rows */
-  .svc-row-item {
-    display:grid; grid-template-columns:420px 1fr;
-    gap:3px; background:var(--dark);
-    margin-bottom:3px;
-  }
-  .svc-row-item.reverse { grid-template-columns:1fr 420px; }
-  .svc-row-img { overflow:hidden; min-height:360px; }
-  .svc-row-img img { height:100%; transition:transform .5s; }
-  .svc-row-item:hover .svc-row-img img { transform:scale(1.04); }
-  .svc-row-body { background:var(--card); padding:52px 48px; display:flex; flex-direction:column; justify-content:center; }
-  .svc-row-item.reverse .svc-row-body { order:-1; }
-  .svc-row-body .sec-tag { margin-bottom:14px; }
-  .svc-row-body h2 { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:1.5px; color:var(--white); margin-bottom:14px; }
-  .svc-row-body p { color:#666; font-size:0.9rem; font-weight:300; margin-bottom:20px; }
-  .svc-row-body ul { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:28px; }
-  .svc-row-body ul li { color:#999; font-size:0.86rem; display:flex; align-items:center; gap:10px; }
-  .svc-row-body ul li::before { content:'→'; color:var(--orange); }
-  .svc-price { display:inline-block; background:rgba(240,90,26,0.1); border:1px solid rgba(240,90,26,0.3); color:var(--orange); font-size:0.7rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:7px 18px; }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px)
+      }
 
-  /* ══════════════════════ BOOKING PAGE ══════════════════════ */
-  .booking-layout { display:grid; grid-template-columns:1fr 440px; min-height:calc(100vh - 68px); }
-  .bleft { position:relative; overflow:hidden; }
-  .bleft-img {
-    position:absolute; inset:0;
-    background-image:url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200&q=80&auto=format&fit=crop');
-    background-size:cover; background-position:center;
-  }
-  .bleft-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.88) 100%); }
-  .bleft-content { position:relative; z-index:2; padding:70px 60px; height:100%; display:flex; flex-direction:column; justify-content:space-between; }
-  .bleft-content h2 { font-family:'Bebas Neue',sans-serif; font-size:3.5rem; letter-spacing:2px; color:var(--white); line-height:1; margin-bottom:12px; }
-  .bleft-content h2 span { color:var(--orange); }
-  .bleft-content > div:first-child > p { color:#666; font-weight:300; max-width:440px; margin-bottom:40px; }
-  .b-info-list { display:flex; flex-direction:column; gap:18px; }
-  .b-info-item { display:flex; align-items:flex-start; gap:14px; }
-  .b-icon { width:40px; height:40px; min-width:40px; background:rgba(240,90,26,0.1); border:1px solid rgba(240,90,26,0.2); display:flex; align-items:center; justify-content:center; font-size:1rem; }
-  .b-info-item h4 { color:var(--white); font-size:0.86rem; font-weight:600; margin-bottom:2px; }
-  .b-info-item span { color:#555; font-size:0.8rem; font-weight:300; }
-  .avail-box { background:rgba(255,255,255,0.04); border:1px solid rgba(240,90,26,0.15); padding:20px 24px; margin-top:36px; }
-  .avail-box h4 { color:var(--orange); font-size:0.65rem; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:14px; }
-  .avail-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
-  .avail-row:last-child { border:none; }
-  .avail-day { color:#666; font-size:0.82rem; }
-  .avbadge { font-size:0.62rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 12px; border-radius:2px; }
-  .av-o { background:rgba(74,222,128,0.1); color:#4ade80; }
-  .av-f { background:rgba(240,90,26,0.15); color:var(--orange); }
-  .av-x { background:rgba(248,113,113,0.1); color:#f87171; }
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
 
-  .bright { background:var(--dark); padding:60px 44px; overflow-y:auto; border-left:1px solid var(--border); }
-  .bright h3 { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:2px; color:var(--white); margin-bottom:28px; }
-  .fg { margin-bottom:18px; }
-  .fg label { display:block; font-size:0.66rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#555; margin-bottom:7px; }
-  .fg input, .fg select, .fg textarea { width:100%; background:var(--card); border:1px solid #222; padding:12px 16px; font-family:'Barlow',sans-serif; font-size:0.9rem; color:var(--white); outline:none; appearance:none; transition:border-color .2s; }
-  .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--orange); }
-  .fg select option { background:var(--card); }
-  .fg textarea { height:88px; resize:vertical; }
-  .fg-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  .goal-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
-  .gchip { background:var(--card); border:1px solid #222; color:#666; font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:8px 14px; cursor:pointer; transition:all .2s; }
-  .gchip:hover, .gchip.on { background:var(--orange); border-color:var(--orange); color:var(--white); }
-  .time-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:4px; }
-  .tslot { background:var(--card); border:1px solid #222; color:#555; font-size:0.76rem; font-weight:700; letter-spacing:1px; padding:10px 6px; text-align:center; cursor:pointer; transition:all .2s; }
-  .tslot:hover, .tslot.on { background:var(--orange); border-color:var(--orange); color:var(--white); }
-  .submit-btn { width:100%; background:var(--orange); color:var(--white); border:none; padding:16px; font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:3px; cursor:pointer; clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%); transition:background .2s; }
-  .submit-btn:hover { background:var(--hot); }
-  .book-note { font-size:0.72rem; color:#333; margin-top:12px; font-weight:300; line-height:1.6; }
-  .book-success { display:none; margin-top:14px; background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.2); padding:16px 20px; color:#4ade80; font-size:0.86rem; }
-  .book-success.show { display:block; }
+    /* ── BUTTONS ── */
+    .btn-fire {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      padding: 14px 36px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: background .2s, transform .15s;
+    }
 
-  /* ══════════════════════ FOOTER ══════════════════════ */
-  footer { background:#040404; padding:60px 60px 26px; border-top:1px solid #111; }
-  .foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:50px; }
-  .foot-logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:4px; color:var(--white); display:block; margin-bottom:14px; }
-  .foot-logo span { color:var(--orange); }
-  .foot-desc { color:#333; font-size:0.83rem; font-weight:300; line-height:1.9; }
-  .foot-badge-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }
-  .fbadge { background:rgba(255,255,255,0.03); border:1px solid #1a1a1a; color:#333; font-size:0.62rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; }
-  .foot-col h4 { color:#222; font-size:0.62rem; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:18px; font-weight:700; }
-  .foot-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
-  .foot-col ul li a { color:#333; font-size:0.83rem; font-weight:300; text-decoration:none; transition:color .2s; }
-  .foot-col ul li a:hover { color:var(--orange); }
-  .foot-bottom { border-top:1px solid #111; padding-top:22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  .foot-bottom p { color:#222; font-size:0.73rem; }
-  .foot-legal { display:flex; gap:20px; }
-  .foot-legal a { color:#222; font-size:0.73rem; text-decoration:none; transition:color .2s; }
-  .foot-legal a:hover { color:var(--orange); }
+    .btn-fire:hover {
+      background: var(--hot);
+      transform: translateY(-2px);
+    }
 
-  /* RESPONSIVE */
-  @media(max-width:960px){
-    nav { padding:0 20px; }
-    .nav-links { display:none; }
-    .hero-content, .sec, .wp-hero, .svcs-hero, .bleft-content, .bright { padding-left:22px; padding-right:22px; }
-    .classes-grid, .testi-grid, .trainers-grid, .plans-grid { grid-template-columns:1fr 1fr; }
-    .proof-row { grid-template-columns:repeat(2,1fr); }
-    .split { grid-template-columns:1fr; }
-    .svc-row-item, .svc-row-item.reverse { grid-template-columns:1fr; }
-    .svc-row-item.reverse .svc-row-body { order:0; }
-    .schedule-wrap { grid-template-columns:1fr; }
-    .booking-layout { grid-template-columns:1fr; }
-    .bleft { min-height:420px; }
-    .foot-grid { grid-template-columns:1fr; gap:28px; }
-    .photo-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
-    .pg-item.tall { grid-row:span 1; }
-    .hsb-cell { padding:16px 20px; }
-  }
-</style>
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 14px 36px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* ── SECTION PRIMITIVES ── */
+    .sec {
+      padding: var(--gap) 60px;
+    }
+
+    .sec-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--orange);
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .sec-tag::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--orange);
+      display: block;
+    }
+
+    .sec-h {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+      letter-spacing: 2px;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .sec-h .o {
+      color: var(--orange);
+    }
+
+    .sec-sub {
+      color: #777;
+      max-width: 520px;
+      font-weight: 300;
+      font-size: 0.95rem;
+    }
+
+    /* ══════════════════════ HERO ══════════════════════ */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      animation: kenBurns 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenBurns {
+      from {
+        transform: scale(1.06)
+      }
+
+      to {
+        transform: scale(1.0)
+      }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(8, 8, 8, 0.92) 45%, rgba(8, 8, 8, 0.4) 100%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 60px 160px;
+      max-width: 780px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(240, 90, 26, 0.4);
+      color: var(--orange);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 2px;
+      margin-bottom: 30px;
+    }
+
+    .hero-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.8)
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      line-height: 0.88;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      color: var(--white);
+    }
+
+    .hero h1 .outline {
+      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
+      color: transparent;
+    }
+
+    .hero h1 .fire {
+      color: var(--orange);
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 44px;
+      line-height: 1.85;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* hero bottom stats bar */
+    .hero-stats-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      background: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(240, 90, 26, 0.2);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0;
+    }
+
+    .hsb-cell {
+      padding: 22px 36px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hsb-cell:last-child {
+      border: none;
+    }
+
+    .hsb-icon {
+      font-size: 1.6rem;
+    }
+
+    .hsb-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.9rem;
+      color: var(--orange);
+      line-height: 1;
+      display: block;
+    }
+
+    .hsb-lbl {
+      color: #555;
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════ CLASSES ══════════════════════ */
+    .classes-sec {
+      background: var(--dark);
+    }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 52px;
+    }
+
+    .class-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+    }
+
+    .class-card img {
+      height: 100%;
+      transition: transform .6s ease;
+    }
+
+    .class-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .class-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 8, 0.92) 0%, rgba(8, 8, 8, 0.2) 60%, transparent 100%);
+      transition: background .3s;
+    }
+
+    .class-card:hover .class-overlay {
+      background: linear-gradient(to top, rgba(240, 90, 26, 0.85) 0%, rgba(8, 8, 8, 0.3) 70%, transparent 100%);
+    }
+
+    .class-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 26px;
+    }
+
+    .class-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .class-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .class-info p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.82rem;
+      font-weight: 300;
+    }
+
+    .class-meta {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .class-pill {
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    /* ══════════════════════ FIRE BANNER ══════════════════════ */
+    .fire-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--orange);
+      padding: 64px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .fire-banner::before {
+      content: 'NO EXCUSES';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 9rem;
+      color: rgba(0, 0, 0, 0.08);
+      letter-spacing: 8px;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .fire-banner h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .fire-banner p {
+      color: rgba(0, 0, 0, 0.6);
+      margin-top: 8px;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .btn-dark {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 14px 36px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: background .2s;
+      flex-shrink: 0;
+    }
+
+    .btn-dark:hover {
+      background: #1a1a1a;
+    }
+
+    /* ══════════════════════ TRAINERS ══════════════════════ */
+    .trainers-sec {
+      background: var(--black);
+    }
+
+    .trainers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      margin-top: 52px;
+    }
+
+    .trainer-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trainer-card img {
+      height: 380px;
+      transition: transform .5s;
+    }
+
+    .trainer-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .trainer-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.1) 55%, transparent 100%);
+    }
+
+    .trainer-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 22px 20px;
+    }
+
+    .trainer-bar {
+      width: 28px;
+      height: 3px;
+      background: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .trainer-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 1.5px;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .trainer-spec {
+      color: var(--orange);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .trainer-info p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.78rem;
+      font-weight: 300;
+    }
+
+    /* ══════════════════════ SPLIT FACILITY ══════════════════════ */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .split-img {
+      overflow: hidden;
+      min-height: 520px;
+    }
+
+    .split-img img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .split-body {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--dark);
+    }
+
+    .feat-rows {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .feat-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--card);
+      padding: 18px 22px;
+      border-left: 3px solid transparent;
+      transition: border-color .2s, background .2s;
+    }
+
+    .feat-row:hover {
+      border-left-color: var(--orange);
+      background: #1e1e1e;
+    }
+
+    .feat-row-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .feat-row-text h4 {
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .feat-row-text p {
+      color: #666;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+
+    /* ══════════════════════ MEMBERSHIP ══════════════════════ */
+    .membership-sec {
+      background: var(--dark);
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 52px;
+    }
+
+    .plan-card {
+      background: var(--card);
+      padding: 44px 36px;
+      position: relative;
+      transition: transform .3s;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .plan-card.best {
+      background: var(--orange);
+      transform: scale(1.02);
+    }
+
+    .plan-card.best:hover {
+      transform: scale(1.02) translateY(-4px);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -1px;
+      right: 24px;
+      background: var(--black);
+      color: var(--orange);
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 5px 14px;
+    }
+
+    .plan-card.best .plan-badge {
+      background: var(--white);
+    }
+
+    .plan-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+      color: var(--white);
+    }
+
+    .plan-card.best .plan-name {
+      color: var(--black);
+    }
+
+    .plan-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.8rem;
+      color: var(--white);
+      line-height: 1;
+      margin: 18px 0 6px;
+    }
+
+    .plan-card.best .plan-price {
+      color: var(--black);
+    }
+
+    .plan-per {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.82rem;
+      margin-bottom: 28px;
+    }
+
+    .plan-card.best .plan-per {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .plan-feats {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .plan-feats li {
+      font-size: 0.86rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .plan-card.best .plan-feats li {
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .plan-feats li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .plan-card.best .plan-feats li::before {
+      color: var(--black);
+    }
+
+    .plan-feats li.no {
+      opacity: .35;
+    }
+
+    .plan-feats li.no::before {
+      content: '×';
+    }
+
+    .plan-btn {
+      width: 100%;
+      background: rgba(240, 90, 26, 0.12);
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      padding: 14px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .plan-btn:hover {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .plan-card.best .plan-btn {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    .plan-card.best .plan-btn:hover {
+      background: #222;
+    }
+
+    /* ══════════════════════ SCHEDULE ══════════════════════ */
+    .schedule-sec {
+      background: var(--black);
+    }
+
+    .schedule-wrap {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 3px;
+    }
+
+    .schedule-table-wrap {
+      overflow-x: auto;
+    }
+
+    .sched-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .sched-table th {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      color: var(--orange);
+      text-align: left;
+      padding: 14px 18px;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .sched-table td {
+      padding: 16px 18px;
+      color: #888;
+      border-bottom: 1px solid #131313;
+      font-size: 0.86rem;
+      font-weight: 300;
+    }
+
+    .sched-table tr:hover td {
+      background: #111;
+    }
+
+    .sched-name {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .lvl {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    .lvl-b {
+      background: rgba(74, 222, 128, 0.1);
+      color: #4ade80;
+    }
+
+    .lvl-i {
+      background: rgba(240, 90, 26, 0.1);
+      color: var(--orange);
+    }
+
+    .lvl-a {
+      background: rgba(248, 113, 113, 0.1);
+      color: #f87171;
+    }
+
+    .spots {
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    /* sidebar cta */
+    .sched-sidebar {
+      background: var(--orange);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .sched-sidebar h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .sched-sidebar p {
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 0.88rem;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .sched-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .sched-perks li {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 0.84rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sched-perks li::before {
+      content: '✓';
+      font-weight: 700;
+    }
+
+    /* ══════════════════════ TESTIMONIALS ══════════════════════ */
+    .testi-sec {
+      background: var(--dark);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 52px;
+    }
+
+    .testi-card {
+      background: var(--card);
+      padding: 34px 30px;
+      border-left: 3px solid transparent;
+      transition: border-color .3s;
+    }
+
+    .testi-card:hover {
+      border-left-color: var(--orange);
+    }
+
+    .testi-stars {
+      color: var(--orange);
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+    }
+
+    .testi-card p {
+      color: #777;
+      font-size: 0.88rem;
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 22px;
+      line-height: 1.8;
+    }
+
+    .testi-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testi-av {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .testi-av img {
+      height: 100%;
+    }
+
+    .testi-name {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    .testi-result {
+      color: var(--orange);
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════ PHOTO GRID ══════════════════════ */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 3px;
+    }
+
+    .pg-item {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pg-item img {
+      height: 100%;
+      transition: transform .5s;
+    }
+
+    .pg-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .pg-item.tall {
+      grid-row: span 2;
+    }
+
+    .pg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 8, 8, 0);
+      transition: background .3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .pg-item:hover .pg-overlay {
+      background: rgba(240, 90, 26, 0.25);
+    }
+
+    .pg-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      color: white;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all .3s;
+    }
+
+    .pg-item:hover .pg-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════ WHY PAGE ══════════════════════ */
+    .wp-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+      padding: 90px 60px 80px;
+    }
+
+    .wp-hero-bg {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 48%;
+      background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=900&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+    }
+
+    .wp-hero .sec-h {
+      font-size: clamp(3rem, 6vw, 5rem);
+      max-width: 680px;
+    }
+
+    .reasons-list {
+      margin-top: 3px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .reason-row {
+      background: var(--card);
+      padding: 36px 44px;
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      transition: background .25s;
+    }
+
+    .reason-row:hover {
+      background: #1e1e1e;
+    }
+
+    .r-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: rgba(240, 90, 26, 0.18);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 68px;
+    }
+
+    .r-body h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 1.5px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .r-body p {
+      color: #666;
+      font-size: 0.88rem;
+      font-weight: 300;
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+
+    .proof-cell {
+      background: var(--dark);
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .proof-n {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.2rem;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .proof-l {
+      color: #555;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .equip-strip {
+      background: var(--card);
+      padding: 70px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .equip-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .equip-left p {
+      color: #666;
+      font-weight: 300;
+      max-width: 460px;
+    }
+
+    .equip-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .etag {
+      background: rgba(240, 90, 26, 0.08);
+      border: 1px solid rgba(240, 90, 26, 0.2);
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 7px 16px;
+    }
+
+    /* ══════════════════════ SERVICES PAGE ══════════════════════ */
+    .svcs-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+      padding: 90px 60px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .svcs-hero-bg {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.1;
+    }
+
+    .svcs-hero .sec-h {
+      font-size: clamp(3rem, 5.5vw, 4.5rem);
+      max-width: 600px;
+    }
+
+    /* image + text service rows */
+    .svc-row-item {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 3px;
+      background: var(--dark);
+      margin-bottom: 3px;
+    }
+
+    .svc-row-item.reverse {
+      grid-template-columns: 1fr 420px;
+    }
+
+    .svc-row-img {
+      overflow: hidden;
+      min-height: 360px;
+    }
+
+    .svc-row-img img {
+      height: 100%;
+      transition: transform .5s;
+    }
+
+    .svc-row-item:hover .svc-row-img img {
+      transform: scale(1.04);
+    }
+
+    .svc-row-body {
+      background: var(--card);
+      padding: 52px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .svc-row-item.reverse .svc-row-body {
+      order: -1;
+    }
+
+    .svc-row-body .sec-tag {
+      margin-bottom: 14px;
+    }
+
+    .svc-row-body h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .svc-row-body p {
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .svc-row-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .svc-row-body ul li {
+      color: #999;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .svc-row-body ul li::before {
+      content: '→';
+      color: var(--orange);
+    }
+
+    .svc-price {
+      display: inline-block;
+      background: rgba(240, 90, 26, 0.1);
+      border: 1px solid rgba(240, 90, 26, 0.3);
+      color: var(--orange);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+    }
+
+    /* ══════════════════════ BOOKING PAGE ══════════════════════ */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      min-height: calc(100vh - 68px);
+    }
+
+    .bleft {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bleft-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .bleft-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8, 8, 8, 0.55) 0%, rgba(8, 8, 8, 0.88) 100%);
+    }
+
+    .bleft-content {
+      position: relative;
+      z-index: 2;
+      padding: 70px 60px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bleft-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .bleft-content h2 span {
+      color: var(--orange);
+    }
+
+    .bleft-content>div:first-child>p {
+      color: #666;
+      font-weight: 300;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+
+    .b-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .b-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .b-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: rgba(240, 90, 26, 0.1);
+      border: 1px solid rgba(240, 90, 26, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .b-info-item h4 {
+      color: var(--white);
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .b-info-item span {
+      color: #555;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+
+    .avail-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(240, 90, 26, 0.15);
+      padding: 20px 24px;
+      margin-top: 36px;
+    }
+
+    .avail-box h4 {
+      color: var(--orange);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .avail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .avail-row:last-child {
+      border: none;
+    }
+
+    .avail-day {
+      color: #666;
+      font-size: 0.82rem;
+    }
+
+    .avbadge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 2px;
+    }
+
+    .av-o {
+      background: rgba(74, 222, 128, 0.1);
+      color: #4ade80;
+    }
+
+    .av-f {
+      background: rgba(240, 90, 26, 0.15);
+      color: var(--orange);
+    }
+
+    .av-x {
+      background: rgba(248, 113, 113, 0.1);
+      color: #f87171;
+    }
+
+    .bright {
+      background: var(--dark);
+      padding: 60px 44px;
+      overflow-y: auto;
+      border-left: 1px solid var(--border);
+    }
+
+    .bright h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .fg {
+      margin-bottom: 18px;
+    }
+
+    .fg label {
+      display: block;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 7px;
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid #222;
+      padding: 12px 16px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      color: var(--white);
+      outline: none;
+      appearance: none;
+      transition: border-color .2s;
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      border-color: var(--orange);
+    }
+
+    .fg select option {
+      background: var(--card);
+    }
+
+    .fg textarea {
+      height: 88px;
+      resize: vertical;
+    }
+
+    .fg-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .goal-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .gchip {
+      background: var(--card);
+      border: 1px solid #222;
+      color: #666;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .gchip:hover,
+    .gchip.on {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .tslot {
+      background: var(--card);
+      border: 1px solid #222;
+      color: #555;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 10px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .tslot:hover,
+    .tslot.on {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+      cursor: pointer;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: background .2s;
+    }
+
+    .submit-btn:hover {
+      background: var(--hot);
+    }
+
+    .book-note {
+      font-size: 0.72rem;
+      color: #333;
+      margin-top: 12px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .book-success {
+      display: none;
+      margin-top: 14px;
+      background: rgba(74, 222, 128, 0.06);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      padding: 16px 20px;
+      color: #4ade80;
+      font-size: 0.86rem;
+    }
+
+    .book-success.show {
+      display: block;
+    }
+
+    /* ══════════════════════ FOOTER ══════════════════════ */
+    footer {
+      background: #040404;
+      padding: 60px 60px 26px;
+      border-top: 1px solid #111;
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 50px;
+    }
+
+    .foot-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: var(--white);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .foot-logo span {
+      color: var(--orange);
+    }
+
+    .foot-desc {
+      color: #333;
+      font-size: 0.83rem;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    .foot-badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .fbadge {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid #1a1a1a;
+      color: #333;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+    }
+
+    .foot-col h4 {
+      color: #222;
+      font-size: 0.62rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .foot-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .foot-col ul li a {
+      color: #333;
+      font-size: 0.83rem;
+      font-weight: 300;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .foot-col ul li a:hover {
+      color: var(--orange);
+    }
+
+    .foot-bottom {
+      border-top: 1px solid #111;
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .foot-bottom p {
+      color: #222;
+      font-size: 0.73rem;
+    }
+
+    .foot-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .foot-legal a {
+      color: #222;
+      font-size: 0.73rem;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .foot-legal a:hover {
+      color: var(--orange);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:960px) {
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content,
+      .sec,
+      .wp-hero,
+      .svcs-hero,
+      .bleft-content,
+      .bright {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .classes-grid,
+      .testi-grid,
+      .trainers-grid,
+      .plans-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .proof-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .svc-row-item,
+      .svc-row-item.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .svc-row-item.reverse .svc-row-body {
+        order: 0;
+      }
+
+      .schedule-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .bleft {
+        min-height: 420px;
+      }
+
+      .foot-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .pg-item.tall {
+        grid-row: span 1;
+      }
+
+      .hsb-cell {
+        padding: 16px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ════ NAV ════ -->
-<nav>
-  <div class="nav-logo">FOR<span>G</span>E</div>
-  <ul class="nav-links">
-    <li><a href="#" class="active" onclick="go('home',this)">Home</a></li>
-    <li><a href="#" onclick="go('whypick',this)">Why FORGE</a></li>
-    <li><a href="#" onclick="go('services',this)">Programs</a></li>
-    <li><a href="#" class="nav-cta" onclick="go('booking',this)">Join Now</a></li>
-  </ul>
-</nav>
+  <!-- ════ NAV ════ -->
+  <nav>
+    <div class="nav-logo">FOR<span>G</span>E</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active" onclick="go('home',this)">Home</a></li>
+      <li><a href="#" onclick="go('whypick',this)">Why FORGE</a></li>
+      <li><a href="#" onclick="go('services',this)">Programs</a></li>
+      <li><a href="#" class="nav-cta" onclick="go('booking',this)">Join Now</a></li>
+    </ul>
+  </nav>
 
 
-<!-- ══════════════════════════ HOME ══════════════════════════ -->
-<div id="home" class="page active">
+  <!-- ══════════════════════════ HOME ══════════════════════════ -->
+  <div id="home" class="page active">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-grain"></div>
-    <div class="hero-content">
-      <div class="hero-pill">Fitzroy, Melbourne · Est. 2015</div>
-      <h1>TRAIN<br><span class="outline">HARDER.</span><br><span class="fire">LIVE</span> BETTER.</h1>
-      <p>FORGE is a high-performance training studio built for people serious about results. Elite equipment, world-class coaches, and a community that pushes you further than you'd go alone.</p>
-      <div class="hero-btns">
-        <button class="btn-fire" onclick="go('booking',null)">Start Free Trial</button>
-        <button class="btn-ghost" onclick="go('services',null)">View Programs</button>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-grain"></div>
+      <div class="hero-content">
+        <div class="hero-pill">Fitzroy, Melbourne · Est. 2015</div>
+        <h1>TRAIN<br><span class="outline">HARDER.</span><br><span class="fire">LIVE</span> BETTER.</h1>
+        <p>FORGE is a high-performance training studio built for people serious about results. Elite equipment,
+          world-class coaches, and a community that pushes you further than you'd go alone.</p>
+        <div class="hero-btns">
+          <button class="btn-fire" onclick="go('booking',null)">Start Free Trial</button>
+          <button class="btn-ghost" onclick="go('services',null)">View Programs</button>
+        </div>
       </div>
-    </div>
-    <div class="hero-stats-bar">
-      <div class="hsb-cell"><span class="hsb-icon">👥</span><div><span class="hsb-num">2,400+</span><span class="hsb-lbl">Active Members</span></div></div>
-      <div class="hsb-cell"><span class="hsb-icon">🏋️</span><div><span class="hsb-num">28</span><span class="hsb-lbl">Expert Coaches</span></div></div>
-      <div class="hsb-cell"><span class="hsb-icon">🔥</span><div><span class="hsb-num">60+</span><span class="hsb-lbl">Classes Per Week</span></div></div>
-      <div class="hsb-cell"><span class="hsb-icon">⭐</span><div><span class="hsb-num">4.9★</span><span class="hsb-lbl">Google Reviews</span></div></div>
-    </div>
-  </section>
+      <div class="hero-stats-bar">
+        <div class="hsb-cell"><span class="hsb-icon">👥</span>
+          <div><span class="hsb-num">2,400+</span><span class="hsb-lbl">Active Members</span></div>
+        </div>
+        <div class="hsb-cell"><span class="hsb-icon">🏋️</span>
+          <div><span class="hsb-num">28</span><span class="hsb-lbl">Expert Coaches</span></div>
+        </div>
+        <div class="hsb-cell"><span class="hsb-icon">🔥</span>
+          <div><span class="hsb-num">60+</span><span class="hsb-lbl">Classes Per Week</span></div>
+        </div>
+        <div class="hsb-cell"><span class="hsb-icon">⭐</span>
+          <div><span class="hsb-num">4.9★</span><span class="hsb-lbl">Google Reviews</span></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- CLASSES WITH IMAGES -->
-  <section class="sec classes-sec">
-    <div class="sec-tag">What We Offer</div>
-    <h2 class="sec-h">CLASSES BUILT FOR <span class="o">EVERY GOAL</span></h2>
-    <p class="sec-sub">From beginner cardio to elite strength coaching — a programme for every level and ambition.</p>
-    <div class="classes-grid">
-      <div class="class-card">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80&auto=format&fit=crop" alt="Strength & Powerlifting">
-        <div class="class-overlay"></div>
-        <div class="class-info">
-          <div class="class-tag">Most Popular</div>
-          <h3>Strength & Powerlifting</h3>
-          <p>Build raw strength with progressive overload. Barbells, racks, and certified strength coaches.</p>
-          <div class="class-meta"><span class="class-pill">45–60 min</span><span class="class-pill">All Levels</span></div>
+    <!-- CLASSES WITH IMAGES -->
+    <section class="sec classes-sec">
+      <div class="sec-tag">What We Offer</div>
+      <h2 class="sec-h">CLASSES BUILT FOR <span class="o">EVERY GOAL</span></h2>
+      <p class="sec-sub">From beginner cardio to elite strength coaching — a programme for every level and ambition.</p>
+      <div class="classes-grid">
+        <div class="class-card">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80&auto=format&fit=crop"
+            alt="Strength & Powerlifting">
+          <div class="class-overlay"></div>
+          <div class="class-info">
+            <div class="class-tag">Most Popular</div>
+            <h3>Strength & Powerlifting</h3>
+            <p>Build raw strength with progressive overload. Barbells, racks, and certified strength coaches.</p>
+            <div class="class-meta"><span class="class-pill">45–60 min</span><span class="class-pill">All Levels</span>
+            </div>
+          </div>
+        </div>
+        <div class="class-card">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&auto=format&fit=crop"
+            alt="HIIT Conditioning">
+          <div class="class-overlay"></div>
+          <div class="class-info">
+            <h3>HIIT & Metabolic</h3>
+            <p>High-intensity interval training designed to torch calories and build cardiovascular endurance fast.</p>
+            <div class="class-meta"><span class="class-pill">30 min</span><span class="class-pill">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div class="class-card">
+          <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=600&q=80&auto=format&fit=crop"
+            alt="Boxing Fitness">
+          <div class="class-overlay"></div>
+          <div class="class-info">
+            <h3>Boxing & Combat</h3>
+            <p>Bag work, pad rounds, footwork drills. Full-body conditioning through structured boxing workouts.</p>
+            <div class="class-meta"><span class="class-pill">45 min</span><span class="class-pill">All Levels</span>
+            </div>
+          </div>
+        </div>
+        <div class="class-card">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&auto=format&fit=crop"
+            alt="Yoga Mobility">
+          <div class="class-overlay"></div>
+          <div class="class-info">
+            <h3>Yoga & Mobility</h3>
+            <p>Recovery-focused yoga and active mobility sessions designed specifically for athletes and gym-goers.</p>
+            <div class="class-meta"><span class="class-pill">60 min</span><span class="class-pill">Beginner</span></div>
+          </div>
+        </div>
+        <div class="class-card">
+          <img src="https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?w=600&q=80&auto=format&fit=crop"
+            alt="Spin Cycling">
+          <div class="class-overlay"></div>
+          <div class="class-info">
+            <h3>Spin Cycling</h3>
+            <p>Music-driven indoor cycling in our dedicated dark studio. 28 bikes, laser lighting, elite instructors.
+            </p>
+            <div class="class-meta"><span class="class-pill">45 min</span><span class="class-pill">All Levels</span>
+            </div>
+          </div>
+        </div>
+        <div class="class-card">
+          <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=80&auto=format&fit=crop"
+            alt="CrossFit Functional">
+          <div class="class-overlay"></div>
+          <div class="class-info">
+            <div class="class-tag">Advanced</div>
+            <h3>Functional CrossFit</h3>
+            <p>Olympic lifting, gymnastics, and metabolic work combined. WODs scaled for all levels, coached in small
+              groups.</p>
+            <div class="class-meta"><span class="class-pill">60 min</span><span class="class-pill">Advanced</span></div>
+          </div>
         </div>
       </div>
-      <div class="class-card">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&auto=format&fit=crop" alt="HIIT Conditioning">
-        <div class="class-overlay"></div>
-        <div class="class-info">
-          <h3>HIIT & Metabolic</h3>
-          <p>High-intensity interval training designed to torch calories and build cardiovascular endurance fast.</p>
-          <div class="class-meta"><span class="class-pill">30 min</span><span class="class-pill">Intermediate</span></div>
-        </div>
-      </div>
-      <div class="class-card">
-        <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=600&q=80&auto=format&fit=crop" alt="Boxing Fitness">
-        <div class="class-overlay"></div>
-        <div class="class-info">
-          <h3>Boxing & Combat</h3>
-          <p>Bag work, pad rounds, footwork drills. Full-body conditioning through structured boxing workouts.</p>
-          <div class="class-meta"><span class="class-pill">45 min</span><span class="class-pill">All Levels</span></div>
-        </div>
-      </div>
-      <div class="class-card">
-        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&auto=format&fit=crop" alt="Yoga Mobility">
-        <div class="class-overlay"></div>
-        <div class="class-info">
-          <h3>Yoga & Mobility</h3>
-          <p>Recovery-focused yoga and active mobility sessions designed specifically for athletes and gym-goers.</p>
-          <div class="class-meta"><span class="class-pill">60 min</span><span class="class-pill">Beginner</span></div>
-        </div>
-      </div>
-      <div class="class-card">
-        <img src="https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?w=600&q=80&auto=format&fit=crop" alt="Spin Cycling">
-        <div class="class-overlay"></div>
-        <div class="class-info">
-          <h3>Spin Cycling</h3>
-          <p>Music-driven indoor cycling in our dedicated dark studio. 28 bikes, laser lighting, elite instructors.</p>
-          <div class="class-meta"><span class="class-pill">45 min</span><span class="class-pill">All Levels</span></div>
-        </div>
-      </div>
-      <div class="class-card">
-        <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=80&auto=format&fit=crop" alt="CrossFit Functional">
-        <div class="class-overlay"></div>
-        <div class="class-info">
-          <div class="class-tag">Advanced</div>
-          <h3>Functional CrossFit</h3>
-          <p>Olympic lifting, gymnastics, and metabolic work combined. WODs scaled for all levels, coached in small groups.</p>
-          <div class="class-meta"><span class="class-pill">60 min</span><span class="class-pill">Advanced</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FIRE BANNER -->
-  <div class="fire-banner">
-    <div>
-      <h2>7-DAY FREE TRIAL.<br>NO CREDIT CARD.</h2>
-      <p>Walk in, train for a week, see what FORGE is about. No obligations. No sales pressure. Just results.</p>
-    </div>
-    <button class="btn-dark" onclick="go('booking',null)">Claim Free Trial →</button>
-  </div>
-
-  <!-- TRAINERS WITH PHOTOS -->
-  <section class="sec trainers-sec">
-    <div class="sec-tag">The Coaches</div>
-    <h2 class="sec-h">EXPERT <span class="o">COACHING</span> TEAM</h2>
-    <p class="sec-sub">Certified, experienced, and obsessed with your results. Our coaches are on the floor — not watching from the sideline.</p>
-    <div class="trainers-grid">
-      <div class="trainer-card">
-        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=500&q=80&auto=format&fit=crop&face=1" alt="Marcus Kowalski">
-        <div class="trainer-overlay"></div>
-        <div class="trainer-info">
-          <div class="trainer-bar"></div>
-          <h3>Marcus Kowalski</h3>
-          <div class="trainer-spec">Head Strength Coach</div>
-          <p>CSCS certified, 12 years coaching. Former competitive powerlifter. Specialises in progressive strength programming.</p>
-        </div>
-      </div>
-      <div class="trainer-card">
-        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&q=80&auto=format&fit=crop&face=1" alt="Jordan Lee">
-        <div class="trainer-overlay"></div>
-        <div class="trainer-info">
-          <div class="trainer-bar"></div>
-          <h3>Jordan Lee</h3>
-          <div class="trainer-spec">HIIT & Conditioning</div>
-          <p>ACE-certified personal trainer and group fitness specialist. Creates metabolic programmes that are hard and never boring.</p>
-        </div>
-      </div>
-      <div class="trainer-card">
-        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500&q=80&auto=format&fit=crop&face=1" alt="Anika Singh">
-        <div class="trainer-overlay"></div>
-        <div class="trainer-info">
-          <div class="trainer-bar"></div>
-          <h3>Anika Singh</h3>
-          <div class="trainer-spec">Yoga & Mobility</div>
-          <p>500-hour RYT, certified sports massage therapist. Performance-recovery approach to every mobility session.</p>
-        </div>
-      </div>
-      <div class="trainer-card">
-        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&q=80&auto=format&fit=crop&face=1" alt="Ryan O'Brien">
-        <div class="trainer-overlay"></div>
-        <div class="trainer-info">
-          <div class="trainer-bar"></div>
-          <h3>Ryan O'Brien</h3>
-          <div class="trainer-spec">Boxing & Combat</div>
-          <p>Ex-professional boxer, 8 years teaching. Makes boxing accessible for fitness while developing real technical skill.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPLIT — FACILITY IMAGE + FEATURES -->
-  <div class="split">
-    <div class="split-img">
-      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80&auto=format&fit=crop" alt="FORGE Gym Floor">
-    </div>
-    <div class="split-body">
-      <div class="sec-tag">The Facility</div>
-      <h2 class="sec-h">1,200 SQM OF <span class="o">ELITE</span> EQUIPMENT</h2>
-      <p class="sec-sub">We've invested over $800,000 in commercial-grade equipment. No waiting, no crowding, no excuses.</p>
-      <div class="feat-rows">
-        <div class="feat-row"><span class="feat-row-icon">🏋️</span><div class="feat-row-text"><h4>Eleiko Barbells & Plates</h4><p>Competition-grade lifting equipment used by Australia's top powerlifters.</p></div></div>
-        <div class="feat-row"><span class="feat-row-icon">🚴</span><div class="feat-row-text"><h4>28 Keiser Spin Bikes</h4><p>Dedicated dark cycling studio with laser lighting and immersive sound system.</p></div></div>
-        <div class="feat-row"><span class="feat-row-icon">🧊</span><div class="feat-row-text"><h4>Infrared Sauna & Cold Plunge</h4><p>Recovery zone designed to reduce soreness, improve sleep, and keep you training.</p></div></div>
-        <div class="feat-row"><span class="feat-row-icon">📊</span><div class="feat-row-text"><h4>InBody 570 Body Scanner</h4><p>Monthly composition scans to track real muscle gain and fat loss progress.</p></div></div>
-        <div class="feat-row"><span class="feat-row-icon">⏰</span><div class="feat-row-text"><h4>24/7 Keycard Member Access</h4><p>Train at 5am before work or 11pm after your shift. FORGE never closes.</p></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MEMBERSHIP PLANS -->
-  <section class="sec membership-sec">
-    <div class="sec-tag">Join FORGE</div>
-    <h2 class="sec-h">MEMBERSHIP <span class="o">PLANS</span></h2>
-    <p class="sec-sub">No lock-in contracts. Upgrade or cancel anytime. Start with a 7-day free trial on any plan.</p>
-    <div class="plans-grid">
-      <div class="plan-card">
-        <div class="plan-name">Starter</div>
-        <div class="plan-price">$39</div>
-        <div class="plan-per">/month — no lock-in</div>
-        <ul class="plan-feats">
-          <li>Gym floor access (off-peak)</li>
-          <li>5 group classes/month</li>
-          <li>Locker room & showers</li>
-          <li>FORGE app access</li>
-          <li class="no">Personal training sessions</li>
-          <li class="no">Nutrition coaching</li>
-        </ul>
-        <button class="plan-btn" onclick="go('booking',null)">Get Started</button>
-      </div>
-      <div class="plan-card best">
-        <div class="plan-badge">Most Popular</div>
-        <div class="plan-name">Elite</div>
-        <div class="plan-price">$79</div>
-        <div class="plan-per">/month — no lock-in</div>
-        <ul class="plan-feats">
-          <li>Unlimited 24/7 gym access</li>
-          <li>Unlimited group classes</li>
-          <li>Locker room & showers</li>
-          <li>FORGE app + programming</li>
-          <li>2 PT sessions/month</li>
-          <li>Nutrition consultation</li>
-        </ul>
-        <button class="plan-btn" onclick="go('booking',null)">Join Elite</button>
-      </div>
-      <div class="plan-card">
-        <div class="plan-name">Performance</div>
-        <div class="plan-price">$149</div>
-        <div class="plan-per">/month — no lock-in</div>
-        <ul class="plan-feats">
-          <li>Everything in Elite</li>
-          <li>Weekly PT session</li>
-          <li>Monthly body scan</li>
-          <li>Custom nutrition plan</li>
-          <li>Priority class booking</li>
-          <li>Recovery room access</li>
-        </ul>
-        <button class="plan-btn" onclick="go('booking',null)">Go Performance</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCHEDULE -->
-  <section class="sec schedule-sec">
-    <div class="sec-tag">This Week</div>
-    <h2 class="sec-h">CLASS <span class="o">SCHEDULE</span></h2>
-    <div class="schedule-wrap">
-      <div class="schedule-table-wrap">
-        <table class="sched-table">
-          <thead><tr><th>Time</th><th>Class</th><th>Coach</th><th>Level</th><th>Spots</th></tr></thead>
-          <tbody>
-            <tr><td>6:00 AM</td><td class="sched-name">Strength & Powerlifting</td><td>Marcus K.</td><td><span class="lvl lvl-a">Advanced</span></td><td class="spots">3 left</td></tr>
-            <tr><td>7:00 AM</td><td class="sched-name">HIIT Metabolic</td><td>Jordan L.</td><td><span class="lvl lvl-i">Intermediate</span></td><td>Open</td></tr>
-            <tr><td>9:00 AM</td><td class="sched-name">Morning Yoga & Mobility</td><td>Anika S.</td><td><span class="lvl lvl-b">Beginner</span></td><td>Open</td></tr>
-            <tr><td>12:00 PM</td><td class="sched-name">Lunchtime Boxing</td><td>Ryan O.</td><td><span class="lvl lvl-i">Intermediate</span></td><td class="spots">2 left</td></tr>
-            <tr><td>5:30 PM</td><td class="sched-name">Spin Cycling</td><td>Jordan L.</td><td><span class="lvl lvl-b">Beginner</span></td><td>Open</td></tr>
-            <tr><td>6:30 PM</td><td class="sched-name">Functional CrossFit</td><td>Marcus K.</td><td><span class="lvl lvl-a">Advanced</span></td><td class="spots">1 left</td></tr>
-            <tr><td>7:30 PM</td><td class="sched-name">Evening HIIT</td><td>Anika S.</td><td><span class="lvl lvl-i">Intermediate</span></td><td>Open</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="sched-sidebar">
-        <h3>BOOK A CLASS TODAY</h3>
-        <p>Members book ahead via the FORGE app. Trial members can walk in to any open session.</p>
-        <ul class="sched-perks">
-          <li>Max 14 per class</li>
-          <li>Coaches scale every session</li>
-          <li>No experience needed</li>
-          <li>Equipment provided</li>
-        </ul>
-        <button class="btn-dark" style="clip-path:none;width:100%;" onclick="go('booking',null)">Claim Free Trial</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHOTO GRID -->
-  <div class="photo-grid">
-    <div class="pg-item tall">
-      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&auto=format&fit=crop" alt="Gym floor" style="height:100%">
-      <div class="pg-overlay"><span class="pg-label">The Gym Floor</span></div>
-    </div>
-    <div class="pg-item">
-      <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80&auto=format&fit=crop" alt="Training">
-      <div class="pg-overlay"><span class="pg-label">Group Training</span></div>
-    </div>
-    <div class="pg-item">
-      <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=600&q=80&auto=format&fit=crop" alt="Recovery">
-      <div class="pg-overlay"><span class="pg-label">Recovery Zone</span></div>
-    </div>
-    <div class="pg-item">
-      <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=600&q=80&auto=format&fit=crop" alt="Boxing">
-      <div class="pg-overlay"><span class="pg-label">Boxing Studio</span></div>
-    </div>
-    <div class="pg-item">
-      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&auto=format&fit=crop" alt="Yoga">
-      <div class="pg-overlay"><span class="pg-label">Yoga & Mobility</span></div>
-    </div>
-  </div>
-
-  <!-- TESTIMONIALS WITH AVATARS -->
-  <section class="sec testi-sec">
-    <div class="sec-tag">Member Stories</div>
-    <h2 class="sec-h">REAL PEOPLE. <span class="o">REAL RESULTS.</span></h2>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p>"I've tried 6 gyms in this city. FORGE is the only one where coaches remember your name, track your progress, and care whether you show up. My squat went from 80kg to 140kg in 8 months."</p>
-        <div class="testi-person">
-          <div class="testi-av"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&auto=format&fit=crop&face=1" alt="Daniel"></div>
-          <div><div class="testi-name">Daniel M.</div><div class="testi-result">+75% strength gain in 8 months</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p>"As a 44-year-old mum who hadn't exercised in years, I was terrified. Anika's yoga class changed my relationship with fitness. I've lost 12kg and feel stronger than I did at 30."</p>
-        <div class="testi-person">
-          <div class="testi-av"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80&auto=format&fit=crop&face=1" alt="Karen"></div>
-          <div><div class="testi-name">Karen P.</div><div class="testi-result">12kg lost, back pain gone</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p>"The HIIT classes are genuinely hard — which is exactly what I needed. Jordan pushes you but scales it perfectly. Best conditioning I've had since playing semi-pro football."</p>
-        <div class="testi-person">
-          <div class="testi-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&auto=format&fit=crop&face=1" alt="Tyler"></div>
-          <div><div class="testi-name">Tyler H.</div><div class="testi-result">Fitness benchmark +40%</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="foot-grid">
+    <!-- FIRE BANNER -->
+    <div class="fire-banner">
       <div>
-        <span class="foot-logo">FOR<span>G</span>E</span>
-        <div class="foot-desc">Premium fitness facility committed to results. Expert coaching, elite equipment, and a community that shows up. 42 Industrial Avenue, Fitzroy VIC 3065.</div>
-        <div class="foot-badge-row"><span class="fbadge">No Lock-in</span><span class="fbadge">24/7 Access</span><span class="fbadge">7-Day Free Trial</span></div>
+        <h2>7-DAY FREE TRIAL.<br>NO CREDIT CARD.</h2>
+        <p>Walk in, train for a week, see what FORGE is about. No obligations. No sales pressure. Just results.</p>
       </div>
-      <div class="foot-col"><h4>Programs</h4><ul><li><a href="#">Strength & Powerlifting</a></li><li><a href="#">HIIT & Conditioning</a></li><li><a href="#">Boxing</a></li><li><a href="#">Yoga & Mobility</a></li><li><a href="#">Spin Cycling</a></li><li><a href="#">CrossFit</a></li></ul></div>
-      <div class="foot-col"><h4>Facility</h4><ul><li><a href="#">About FORGE</a></li><li><a href="#">Our Coaches</a></li><li><a href="#">Equipment</a></li><li><a href="#">Membership Plans</a></li><li><a href="#">Recovery Zone</a></li></ul></div>
-      <div class="foot-col"><h4>Visit Us</h4><ul><li><a href="#">42 Industrial Ave, Fitzroy VIC</a></li><li><a href="tel:+61394110042">(03) 9411 0042</a></li><li><a href="#">info@forgefit.com.au</a></li><li><a href="#">Mon–Fri 6am–9pm</a></li><li><a href="#">Members: 24/7</a></li></ul></div>
+      <button class="btn-dark" onclick="go('booking',null)">Claim Free Trial →</button>
     </div>
-    <div class="foot-bottom"><p>© 2025 FORGE Fitness Pty Ltd. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refunds</a></div></div>
-  </footer>
 
-</div><!-- /home -->
-
-
-<!-- ══════════════════════════ WHY FORGE ══════════════════════════ -->
-<div id="whypick" class="page">
-  <div class="wp-hero">
-    <div class="wp-hero-bg"></div>
-    <div class="sec-tag">Why Choose FORGE</div>
-    <h2 class="sec-h">NOT JUST A GYM.<br>A PLACE WHERE <span class="o">CHANGE HAPPENS.</span></h2>
-    <p class="sec-sub" style="margin-top:14px">Thousands of Melbourne members have made FORGE their training home. Here's what makes us different — and why it matters for your results.</p>
-  </div>
-
-  <div class="reasons-list">
-    <div class="reason-row"><div class="r-num">01</div><div class="r-body"><h3>24/7 Access — Because Life Doesn't Work 9 to 5</h3><p>Elite members get full 24/7 keycard access to the entire facility. Whether you train at 5am before work or 11pm after your shift — FORGE is open. No more gym hours limiting your routine.</p></div></div>
-    <div class="reason-row"><div class="r-num">02</div><div class="r-body"><h3>Coaches Who Actually Coach — Not Just Watch</h3><p>Our trainers are on the floor during every class — correcting form, scaling exercises, pushing you harder. We cap group classes at 14 people maximum so nobody gets lost in the crowd. This isn't a class you survive; it's one that transforms you.</p></div></div>
-    <div class="reason-row"><div class="r-num">03</div><div class="r-body"><h3>$800,000 in Commercial-Grade Equipment</h3><p>Eleiko barbells and plates, Life Fitness cardio machines, a dedicated functional rig, 28 Keiser indoor bikes, heavy bags, and a full recovery zone with infrared sauna and compression boots. Broken equipment gets repaired same-day — always.</p></div></div>
-    <div class="reason-row"><div class="r-num">04</div><div class="r-body"><h3>Nutrition Guidance Included — Not an Upsell</h3><p>All Elite and Performance members receive access to our in-house nutrition coach for a monthly check-in. We believe training without nutrition guidance is like driving with one hand on the wheel. Our approach is practical and sustainable — no crash diets.</p></div></div>
-    <div class="reason-row"><div class="r-num">05</div><div class="r-body"><h3>Progress Tracking That Keeps You Accountable</h3><p>Every member gets a FORGE profile tracking strength benchmarks, body composition measurements via InBody scan, class attendance, and programme milestones. Your data is visible on the app so you can see real month-over-month progress.</p></div></div>
-    <div class="reason-row"><div class="r-num">06</div><div class="r-body"><h3>A Community That Actually Shows Up</h3><p>Our member community is genuinely supportive — not performative. Members know each other by name, celebrate milestones, and hold each other accountable. We run quarterly challenges, social events, and charity fitness drives.</p></div></div>
-    <div class="reason-row"><div class="r-num">07</div><div class="r-body"><h3>No Lock-In. No Bull. Cancel Anytime.</h3><p>We don't trap you in 12-month contracts. No joining fees. No high-pressure sales. We believe if we deliver results, you'll stay. Our average member retention rate is 14 months — well above the industry average of 5.</p></div></div>
-    <div class="reason-row"><div class="r-num">08</div><div class="r-body"><h3>7-Day Free Trial — Judge Us Before You Commit</h3><p>New members get 7 days of unlimited access completely free. Train every day that week. Attend every class. Then decide. No credit card required to start. We're confident enough in what we've built to let the experience do the talking.</p></div></div>
-  </div>
-
-  <div class="proof-row">
-    <div class="proof-cell"><span class="proof-n">2,400+</span><div class="proof-l">Active Members</div></div>
-    <div class="proof-cell"><span class="proof-n">$800K+</span><div class="proof-l">Equipment Investment</div></div>
-    <div class="proof-cell"><span class="proof-n">14 mo</span><div class="proof-l">Avg. Member Retention</div></div>
-    <div class="proof-cell"><span class="proof-n">4.9★</span><div class="proof-l">Google Rating</div></div>
-  </div>
-
-  <!-- Split image + equipment tags -->
-  <div class="split">
-    <div class="split-body" style="background:var(--black)">
-      <div class="sec-tag">State of the Art</div>
-      <h2 class="sec-h">ELITE FACILITY & <span class="o">EQUIPMENT</span></h2>
-      <p class="sec-sub">Over 1,200 sqm of training space across dedicated zones — no queuing, no crowded floors, no compromises.</p>
-      <div class="equip-tags" style="margin-top:28px">
-        <span class="etag">Eleiko Barbells & Plates</span>
-        <span class="etag">28 Keiser Spin Bikes</span>
-        <span class="etag">Life Fitness Cardio</span>
-        <span class="etag">Functional Rig</span>
-        <span class="etag">Heavy Bags</span>
-        <span class="etag">Infrared Sauna</span>
-        <span class="etag">InBody 570 Scanner</span>
-        <span class="etag">Recovery Zone</span>
-        <span class="etag">Compression Boots</span>
-        <span class="etag">Cable Machines ×12</span>
-      </div>
-      <button class="btn-fire" style="margin-top:36px;" onclick="go('booking',null)">Claim 7-Day Free Trial</button>
-    </div>
-    <div class="split-img">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop" alt="FORGE Equipment" style="height:100%;min-height:500px">
-    </div>
-  </div>
-
-  <div class="fire-banner">
-    <div>
-      <h2>START TODAY.<br>RESULTS IN 30 DAYS.</h2>
-      <p>Guaranteed progress with our FORGE Results Promise — or your first month is free.</p>
-    </div>
-    <button class="btn-dark" onclick="go('booking',null)">Book Free Trial →</button>
-  </div>
-
-  <footer>
-    <div class="foot-grid">
-      <div><span class="foot-logo">FOR<span>G</span>E</span><div class="foot-desc">Premium training studio. 42 Industrial Ave, Fitzroy VIC. Open 24/7 for members.</div></div>
-      <div class="foot-col"><h4>Programs</h4><ul><li><a href="#">Strength</a></li><li><a href="#">HIIT</a></li><li><a href="#">Boxing</a></li><li><a href="#">Yoga</a></li></ul></div>
-      <div class="foot-col"><h4>Members</h4><ul><li><a href="#">Plans</a></li><li><a href="#">Schedule</a></li><li><a href="#">FORGE App</a></li></ul></div>
-      <div class="foot-col"><h4>Contact</h4><ul><li><a href="#">42 Industrial Ave, Fitzroy</a></li><li><a href="tel:+61394110042">(03) 9411 0042</a></li></ul></div>
-    </div>
-    <div class="foot-bottom"><p>© 2025 FORGE Fitness Pty Ltd.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
-  </footer>
-</div><!-- /whypick -->
-
-
-<!-- ══════════════════════════ PROGRAMS ══════════════════════════ -->
-<div id="services" class="page">
-  <div class="svcs-hero">
-    <div class="svcs-hero-bg"></div>
-    <div class="sec-tag">Our Programs</div>
-    <h2 class="sec-h">EVERY PROGRAM.<br>ONE <span class="o">PURPOSE.</span></h2>
-    <p class="sec-sub">Whether you're losing your first kilogram or chasing a powerlifting PB — our programmes deliver measurable outcomes, not just something to do.</p>
-  </div>
-
-  <div class="svc-row-item">
-    <div class="svc-row-img">
-      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&q=80&auto=format&fit=crop" alt="Strength">
-    </div>
-    <div class="svc-row-body">
-      <div class="sec-tag">Program 01</div>
-      <h2>Strength & Powerlifting</h2>
-      <p>Our structured strength programme uses periodised training — linear, wave, and block — to progressively build your squat, bench, and deadlift. Suitable for beginners and competitive powerlifters alike.</p>
-      <ul><li>Technique assessment in first session</li><li>Percentage-based loading personalised to you</li><li>Peaking programmes for competitions</li><li>Small group coaching — max 8 per session</li></ul>
-      <div class="svc-price">Included — Elite & Performance Plans</div>
-    </div>
-  </div>
-
-  <div class="svc-row-item reverse">
-    <div class="svc-row-img">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=80&auto=format&fit=crop" alt="HIIT">
-    </div>
-    <div class="svc-row-body">
-      <div class="sec-tag">Program 02</div>
-      <h2>HIIT & Metabolic Conditioning</h2>
-      <p>30-minute high-intensity sessions built around AMRAP, EMOM, and Tabata formats. Designed to maximise caloric burn, improve VO2 max, and build a base of functional fitness for everyday life.</p>
-      <ul><li>Heart rate zone training with monitors available</li><li>Varied formats — never the same session twice</li><li>Scaled options for all fitness levels</li><li>Post-session breakdown via FORGE app</li></ul>
-      <div class="svc-price">From $39/month — Starter Plan</div>
-    </div>
-  </div>
-
-  <div class="svc-row-item">
-    <div class="svc-row-img">
-      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80&auto=format&fit=crop" alt="Personal Training">
-    </div>
-    <div class="svc-row-body">
-      <div class="sec-tag">Program 03</div>
-      <h2>1-on-1 Personal Training</h2>
-      <p>Completely individualised sessions with one of our certified coaches. Whether you have specific goals, injuries to work around, or simply want faster results — PT delivers precision that group classes can't.</p>
-      <ul><li>Initial movement screen & goal-setting session</li><li>Custom programming between sessions</li><li>Nutrition integration and tracking support</li><li>Weekly check-ins via the FORGE app</li></ul>
-      <div class="svc-price">From $85/session · Packs available</div>
-    </div>
-  </div>
-
-  <div class="svc-row-item reverse">
-    <div class="svc-row-img">
-      <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=700&q=80&auto=format&fit=crop" alt="Boxing">
-    </div>
-    <div class="svc-row-body">
-      <div class="sec-tag">Program 04</div>
-      <h2>Boxing & Combat Fitness</h2>
-      <p>Technical boxing combined with serious conditioning. Learn real punching technique, footwork, and combinations while burning up to 700 calories per session. No sparring required — ever.</p>
-      <ul><li>Beginner-friendly — gloves provided</li><li>Heavy bag circuits and pad work</li><li>Footwork and defensive drills</li><li>12-round structure like real bouts</li></ul>
-      <div class="svc-price">Included — Elite & Performance Plans</div>
-    </div>
-  </div>
-
-  <div class="svc-row-item">
-    <div class="svc-row-img">
-      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=700&q=80&auto=format&fit=crop" alt="Yoga & Mobility">
-    </div>
-    <div class="svc-row-body">
-      <div class="sec-tag">Program 05</div>
-      <h2>Yoga & Mobility</h2>
-      <p>Recovery is training. Our yoga and active mobility sessions are designed specifically for athletes and gym-goers — preventing injury, reducing soreness, and improving range of motion that makes every other session better.</p>
-      <ul><li>Sports-specific mobility protocols</li><li>Guided breathwork and recovery techniques</li><li>Injury prevention focus — not just stretching</li><li>Morning and evening sessions available</li></ul>
-      <div class="svc-price">Included — All Plans</div>
-    </div>
-  </div>
-
-  <div class="fire-banner" style="margin-top:3px;">
-    <div>
-      <h2>START WITH 7 DAYS FREE.</h2>
-      <p>Full access to every programme. No card needed. No commitment.</p>
-    </div>
-    <button class="btn-dark" onclick="go('booking',null)">Book Free Trial →</button>
-  </div>
-
-  <footer>
-    <div class="foot-grid">
-      <div><span class="foot-logo">FOR<span>G</span>E</span><div class="foot-desc">Premium training studio. Fitzroy VIC. Open 24/7.</div></div>
-      <div class="foot-col"><h4>Programs</h4><ul><li><a href="#">Strength</a></li><li><a href="#">HIIT</a></li><li><a href="#">PT</a></li><li><a href="#">Boxing</a></li><li><a href="#">Yoga</a></li></ul></div>
-      <div class="foot-col"><h4>Members</h4><ul><li><a href="#">Plans</a></li><li><a href="#">Schedule</a></li></ul></div>
-      <div class="foot-col"><h4>Contact</h4><ul><li><a href="#">42 Industrial Ave, Fitzroy</a></li><li><a href="tel:+61394110042">(03) 9411 0042</a></li></ul></div>
-    </div>
-    <div class="foot-bottom"><p>© 2025 FORGE Fitness Pty Ltd.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
-  </footer>
-</div><!-- /services -->
-
-
-<!-- ══════════════════════════ BOOKING ══════════════════════════ -->
-<div id="booking" class="page">
-  <div class="booking-layout">
-    <div class="bleft">
-      <div class="bleft-img"></div>
-      <div class="bleft-overlay"></div>
-      <div class="bleft-content">
-        <div>
-          <div class="sec-tag">Start Today</div>
-          <h2>CLAIM YOUR<br><span>FREE 7-DAY</span><br>TRIAL</h2>
-          <p>Walk in, train hard, see what FORGE is about. Full access to every class, coach, and piece of equipment — 7 days completely free.</p>
-          <div class="b-info-list">
-            <div class="b-info-item"><div class="b-icon">📍</div><div><h4>Location</h4><span>42 Industrial Avenue, Fitzroy VIC 3065<br>Free parking on-site · 5 min from Smith Street tram</span></div></div>
-            <div class="b-info-item"><div class="b-icon">⏰</div><div><h4>Opening Hours</h4><span>Reception Mon–Fri 6am–9pm · Sat–Sun 7am–5pm<br>24/7 member access via keycard</span></div></div>
-            <div class="b-info-item"><div class="b-icon">📞</div><div><h4>Call Us</h4><span>(03) 9411 0042 · info@forgefit.com.au</span></div></div>
-            <div class="b-info-item"><div class="b-icon">🎯</div><div><h4>What to Bring</h4><span>Workout gear and a goal. Towels and all equipment provided.</span></div></div>
+    <!-- TRAINERS WITH PHOTOS -->
+    <section class="sec trainers-sec">
+      <div class="sec-tag">The Coaches</div>
+      <h2 class="sec-h">EXPERT <span class="o">COACHING</span> TEAM</h2>
+      <p class="sec-sub">Certified, experienced, and obsessed with your results. Our coaches are on the floor — not
+        watching from the sideline.</p>
+      <div class="trainers-grid">
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=500&q=80&auto=format&fit=crop&face=1"
+            alt="Marcus Kowalski">
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <div class="trainer-bar"></div>
+            <h3>Marcus Kowalski</h3>
+            <div class="trainer-spec">Head Strength Coach</div>
+            <p>CSCS certified, 12 years coaching. Former competitive powerlifter. Specialises in progressive strength
+              programming.</p>
           </div>
         </div>
-        <div>
-          <div class="avail-box">
-            <h4>This Week's Availability</h4>
-            <div class="avail-row"><span class="avail-day">Monday 28 Apr</span><span class="avbadge av-o">Open</span></div>
-            <div class="avail-row"><span class="avail-day">Tuesday 29 Apr</span><span class="avbadge av-f">2 spots left</span></div>
-            <div class="avail-row"><span class="avail-day">Wednesday 30 Apr</span><span class="avbadge av-x">Fully Booked</span></div>
-            <div class="avail-row"><span class="avail-day">Thursday 1 May</span><span class="avbadge av-o">Open</span></div>
-            <div class="avail-row"><span class="avail-day">Friday 2 May</span><span class="avbadge av-f">3 spots left</span></div>
-            <div class="avail-row"><span class="avail-day">Weekend</span><span class="avbadge av-o">Open</span></div>
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&q=80&auto=format&fit=crop&face=1"
+            alt="Jordan Lee">
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <div class="trainer-bar"></div>
+            <h3>Jordan Lee</h3>
+            <div class="trainer-spec">HIIT & Conditioning</div>
+            <p>ACE-certified personal trainer and group fitness specialist. Creates metabolic programmes that are hard
+              and never boring.</p>
+          </div>
+        </div>
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500&q=80&auto=format&fit=crop&face=1"
+            alt="Anika Singh">
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <div class="trainer-bar"></div>
+            <h3>Anika Singh</h3>
+            <div class="trainer-spec">Yoga & Mobility</div>
+            <p>500-hour RYT, certified sports massage therapist. Performance-recovery approach to every mobility
+              session.</p>
+          </div>
+        </div>
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&q=80&auto=format&fit=crop&face=1"
+            alt="Ryan O'Brien">
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <div class="trainer-bar"></div>
+            <h3>Ryan O'Brien</h3>
+            <div class="trainer-spec">Boxing & Combat</div>
+            <p>Ex-professional boxer, 8 years teaching. Makes boxing accessible for fitness while developing real
+              technical skill.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPLIT — FACILITY IMAGE + FEATURES -->
+    <div class="split">
+      <div class="split-img">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80&auto=format&fit=crop"
+          alt="FORGE Gym Floor">
+      </div>
+      <div class="split-body">
+        <div class="sec-tag">The Facility</div>
+        <h2 class="sec-h">1,200 SQM OF <span class="o">ELITE</span> EQUIPMENT</h2>
+        <p class="sec-sub">We've invested over $800,000 in commercial-grade equipment. No waiting, no crowding, no
+          excuses.</p>
+        <div class="feat-rows">
+          <div class="feat-row"><span class="feat-row-icon">🏋️</span>
+            <div class="feat-row-text">
+              <h4>Eleiko Barbells & Plates</h4>
+              <p>Competition-grade lifting equipment used by Australia's top powerlifters.</p>
+            </div>
+          </div>
+          <div class="feat-row"><span class="feat-row-icon">🚴</span>
+            <div class="feat-row-text">
+              <h4>28 Keiser Spin Bikes</h4>
+              <p>Dedicated dark cycling studio with laser lighting and immersive sound system.</p>
+            </div>
+          </div>
+          <div class="feat-row"><span class="feat-row-icon">🧊</span>
+            <div class="feat-row-text">
+              <h4>Infrared Sauna & Cold Plunge</h4>
+              <p>Recovery zone designed to reduce soreness, improve sleep, and keep you training.</p>
+            </div>
+          </div>
+          <div class="feat-row"><span class="feat-row-icon">📊</span>
+            <div class="feat-row-text">
+              <h4>InBody 570 Body Scanner</h4>
+              <p>Monthly composition scans to track real muscle gain and fat loss progress.</p>
+            </div>
+          </div>
+          <div class="feat-row"><span class="feat-row-icon">⏰</span>
+            <div class="feat-row-text">
+              <h4>24/7 Keycard Member Access</h4>
+              <p>Train at 5am before work or 11pm after your shift. FORGE never closes.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="bright">
-      <h3>BOOK YOUR FIRST SESSION</h3>
-      <div class="fg-row">
-        <div class="fg"><label>First Name</label><input type="text" placeholder="e.g. Alex"></div>
-        <div class="fg"><label>Last Name</label><input type="text" placeholder="e.g. Carter"></div>
-      </div>
-      <div class="fg"><label>Email</label><input type="email" placeholder="alex@email.com"></div>
-      <div class="fg"><label>Phone</label><input type="tel" placeholder="04XX XXX XXX"></div>
-      <div class="fg">
-        <label>Age Range</label>
-        <select><option value="">— Select —</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55+</option></select>
-      </div>
-      <div class="fg">
-        <label>Primary Fitness Goal</label>
-        <div class="goal-chips">
-          <div class="gchip" onclick="tog(this)">Lose Weight</div>
-          <div class="gchip" onclick="tog(this)">Build Muscle</div>
-          <div class="gchip" onclick="tog(this)">Get Stronger</div>
-          <div class="gchip" onclick="tog(this)">More Energy</div>
-          <div class="gchip" onclick="tog(this)">Sport Performance</div>
-          <div class="gchip" onclick="tog(this)">General Fitness</div>
+    <!-- MEMBERSHIP PLANS -->
+    <section class="sec membership-sec">
+      <div class="sec-tag">Join FORGE</div>
+      <h2 class="sec-h">MEMBERSHIP <span class="o">PLANS</span></h2>
+      <p class="sec-sub">No lock-in contracts. Upgrade or cancel anytime. Start with a 7-day free trial on any plan.</p>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">$39</div>
+          <div class="plan-per">/month — no lock-in</div>
+          <ul class="plan-feats">
+            <li>Gym floor access (off-peak)</li>
+            <li>5 group classes/month</li>
+            <li>Locker room & showers</li>
+            <li>FORGE app access</li>
+            <li class="no">Personal training sessions</li>
+            <li class="no">Nutrition coaching</li>
+          </ul>
+          <button class="plan-btn" onclick="go('booking',null)">Get Started</button>
+        </div>
+        <div class="plan-card best">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-name">Elite</div>
+          <div class="plan-price">$79</div>
+          <div class="plan-per">/month — no lock-in</div>
+          <ul class="plan-feats">
+            <li>Unlimited 24/7 gym access</li>
+            <li>Unlimited group classes</li>
+            <li>Locker room & showers</li>
+            <li>FORGE app + programming</li>
+            <li>2 PT sessions/month</li>
+            <li>Nutrition consultation</li>
+          </ul>
+          <button class="plan-btn" onclick="go('booking',null)">Join Elite</button>
+        </div>
+        <div class="plan-card">
+          <div class="plan-name">Performance</div>
+          <div class="plan-price">$149</div>
+          <div class="plan-per">/month — no lock-in</div>
+          <ul class="plan-feats">
+            <li>Everything in Elite</li>
+            <li>Weekly PT session</li>
+            <li>Monthly body scan</li>
+            <li>Custom nutrition plan</li>
+            <li>Priority class booking</li>
+            <li>Recovery room access</li>
+          </ul>
+          <button class="plan-btn" onclick="go('booking',null)">Go Performance</button>
         </div>
       </div>
-      <div class="fg">
-        <label>First Class Interest</label>
-        <select>
-          <option value="">— Choose a class —</option>
-          <option>Strength & Powerlifting</option>
-          <option>HIIT & Metabolic Conditioning</option>
-          <option>Boxing & Combat Fitness</option>
-          <option>Yoga & Mobility</option>
-          <option>Spin Cycling</option>
-          <option>Functional CrossFit</option>
-          <option>Just use the gym floor</option>
-        </select>
-      </div>
-      <div class="fg"><label>Preferred Visit Day</label><input type="date"></div>
-      <div class="fg">
-        <label>Preferred Time</label>
-        <div class="time-grid">
-          <div class="tslot" onclick="selT(this)">6:00 AM</div>
-          <div class="tslot" onclick="selT(this)">7:00 AM</div>
-          <div class="tslot" onclick="selT(this)">9:00 AM</div>
-          <div class="tslot" onclick="selT(this)">12:00 PM</div>
-          <div class="tslot" onclick="selT(this)">5:30 PM</div>
-          <div class="tslot" onclick="selT(this)">6:30 PM</div>
-          <div class="tslot" onclick="selT(this)">7:30 PM</div>
-          <div class="tslot" onclick="selT(this)">Weekend AM</div>
-          <div class="tslot" onclick="selT(this)">Flexible</div>
-        </div>
-      </div>
-      <div class="fg"><label>Anything We Should Know?</label><textarea placeholder="Injuries, medical conditions, experience level, or questions…"></textarea></div>
-      <button class="submit-btn" onclick="bookNow()">LOCK IN MY FREE TRIAL →</button>
-      <div class="book-success" id="bsuccess">
-        🔥 &nbsp;<strong>You're in!</strong> We'll contact you within 1 hour to confirm your first session. Check your inbox for a welcome pack with everything you need before you arrive.
-      </div>
-      <p class="book-note">No credit card required. No automatic billing. Your 7-day trial is completely free. By submitting you agree to receive one confirmation email from FORGE Fitness.</p>
-    </div>
-  </div>
-</div><!-- /booking -->
+    </section>
 
-<script>
-  function go(id, el) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    if (el) el.classList.add('active');
-    window.scrollTo(0, 0);
-  }
-  function tog(el) { el.classList.toggle('on'); }
-  function selT(el) {
-    document.querySelectorAll('.tslot').forEach(t => t.classList.remove('on'));
-    el.classList.add('on');
-  }
-  function bookNow() {
-    const s = document.getElementById('bsuccess');
-    s.classList.add('show');
-    s.scrollIntoView({ behavior:'smooth', block:'nearest' });
-  }
-</script>
+    <!-- SCHEDULE -->
+    <section class="sec schedule-sec">
+      <div class="sec-tag">This Week</div>
+      <h2 class="sec-h">CLASS <span class="o">SCHEDULE</span></h2>
+      <div class="schedule-wrap">
+        <div class="schedule-table-wrap">
+          <table class="sched-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Class</th>
+                <th>Coach</th>
+                <th>Level</th>
+                <th>Spots</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>6:00 AM</td>
+                <td class="sched-name">Strength & Powerlifting</td>
+                <td>Marcus K.</td>
+                <td><span class="lvl lvl-a">Advanced</span></td>
+                <td class="spots">3 left</td>
+              </tr>
+              <tr>
+                <td>7:00 AM</td>
+                <td class="sched-name">HIIT Metabolic</td>
+                <td>Jordan L.</td>
+                <td><span class="lvl lvl-i">Intermediate</span></td>
+                <td>Open</td>
+              </tr>
+              <tr>
+                <td>9:00 AM</td>
+                <td class="sched-name">Morning Yoga & Mobility</td>
+                <td>Anika S.</td>
+                <td><span class="lvl lvl-b">Beginner</span></td>
+                <td>Open</td>
+              </tr>
+              <tr>
+                <td>12:00 PM</td>
+                <td class="sched-name">Lunchtime Boxing</td>
+                <td>Ryan O.</td>
+                <td><span class="lvl lvl-i">Intermediate</span></td>
+                <td class="spots">2 left</td>
+              </tr>
+              <tr>
+                <td>5:30 PM</td>
+                <td class="sched-name">Spin Cycling</td>
+                <td>Jordan L.</td>
+                <td><span class="lvl lvl-b">Beginner</span></td>
+                <td>Open</td>
+              </tr>
+              <tr>
+                <td>6:30 PM</td>
+                <td class="sched-name">Functional CrossFit</td>
+                <td>Marcus K.</td>
+                <td><span class="lvl lvl-a">Advanced</span></td>
+                <td class="spots">1 left</td>
+              </tr>
+              <tr>
+                <td>7:30 PM</td>
+                <td class="sched-name">Evening HIIT</td>
+                <td>Anika S.</td>
+                <td><span class="lvl lvl-i">Intermediate</span></td>
+                <td>Open</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sched-sidebar">
+          <h3>BOOK A CLASS TODAY</h3>
+          <p>Members book ahead via the FORGE app. Trial members can walk in to any open session.</p>
+          <ul class="sched-perks">
+            <li>Max 14 per class</li>
+            <li>Coaches scale every session</li>
+            <li>No experience needed</li>
+            <li>Equipment provided</li>
+          </ul>
+          <button class="btn-dark" style="clip-path:none;width:100%;" onclick="go('booking',null)">Claim Free
+            Trial</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GRID -->
+    <div class="photo-grid">
+      <div class="pg-item tall">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&auto=format&fit=crop"
+          alt="Gym floor" style="height:100%">
+        <div class="pg-overlay"><span class="pg-label">The Gym Floor</span></div>
+      </div>
+      <div class="pg-item">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80&auto=format&fit=crop"
+          alt="Training">
+        <div class="pg-overlay"><span class="pg-label">Group Training</span></div>
+      </div>
+      <div class="pg-item">
+        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=600&q=80&auto=format&fit=crop"
+          alt="Recovery">
+        <div class="pg-overlay"><span class="pg-label">Recovery Zone</span></div>
+      </div>
+      <div class="pg-item">
+        <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=600&q=80&auto=format&fit=crop"
+          alt="Boxing">
+        <div class="pg-overlay"><span class="pg-label">Boxing Studio</span></div>
+      </div>
+      <div class="pg-item">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&auto=format&fit=crop" alt="Yoga">
+        <div class="pg-overlay"><span class="pg-label">Yoga & Mobility</span></div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS WITH AVATARS -->
+    <section class="sec testi-sec">
+      <div class="sec-tag">Member Stories</div>
+      <h2 class="sec-h">REAL PEOPLE. <span class="o">REAL RESULTS.</span></h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"I've tried 6 gyms in this city. FORGE is the only one where coaches remember your name, track your
+            progress, and care whether you show up. My squat went from 80kg to 140kg in 8 months."</p>
+          <div class="testi-person">
+            <div class="testi-av"><img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&auto=format&fit=crop&face=1"
+                alt="Daniel"></div>
+            <div>
+              <div class="testi-name">Daniel M.</div>
+              <div class="testi-result">+75% strength gain in 8 months</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"As a 44-year-old mum who hadn't exercised in years, I was terrified. Anika's yoga class changed my
+            relationship with fitness. I've lost 12kg and feel stronger than I did at 30."</p>
+          <div class="testi-person">
+            <div class="testi-av"><img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80&auto=format&fit=crop&face=1"
+                alt="Karen"></div>
+            <div>
+              <div class="testi-name">Karen P.</div>
+              <div class="testi-result">12kg lost, back pain gone</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"The HIIT classes are genuinely hard — which is exactly what I needed. Jordan pushes you but scales it
+            perfectly. Best conditioning I've had since playing semi-pro football."</p>
+          <div class="testi-person">
+            <div class="testi-av"><img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&auto=format&fit=crop&face=1"
+                alt="Tyler"></div>
+            <div>
+              <div class="testi-name">Tyler H.</div>
+              <div class="testi-result">Fitness benchmark +40%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot-grid">
+        <div>
+          <span class="foot-logo">FOR<span>G</span>E</span>
+          <div class="foot-desc">Premium fitness facility committed to results. Expert coaching, elite equipment, and a
+            community that shows up. 42 Industrial Avenue, Fitzroy VIC 3065.</div>
+          <div class="foot-badge-row"><span class="fbadge">No Lock-in</span><span class="fbadge">24/7 Access</span><span
+              class="fbadge">7-Day Free Trial</span></div>
+        </div>
+        <div class="foot-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#">Strength & Powerlifting</a></li>
+            <li><a href="#">HIIT & Conditioning</a></li>
+            <li><a href="#">Boxing</a></li>
+            <li><a href="#">Yoga & Mobility</a></li>
+            <li><a href="#">Spin Cycling</a></li>
+            <li><a href="#">CrossFit</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Facility</h4>
+          <ul>
+            <li><a href="#">About FORGE</a></li>
+            <li><a href="#">Our Coaches</a></li>
+            <li><a href="#">Equipment</a></li>
+            <li><a href="#">Membership Plans</a></li>
+            <li><a href="#">Recovery Zone</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Visit Us</h4>
+          <ul>
+            <li><a href="#">42 Industrial Ave, Fitzroy VIC</a></li>
+            <li><a href="tel:+61394110042">(03) 9411 0042</a></li>
+            <li><a href="#">info@forgefit.com.au</a></li>
+            <li><a href="#">Mon–Fri 6am–9pm</a></li>
+            <li><a href="#">Members: 24/7</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2025 FORGE Fitness Pty Ltd. All rights reserved.</p>
+        <div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refunds</a></div>
+      </div>
+    </footer>
+
+  </div><!-- /home -->
+
+
+  <!-- ══════════════════════════ WHY FORGE ══════════════════════════ -->
+  <div id="whypick" class="page">
+    <div class="wp-hero">
+      <div class="wp-hero-bg"></div>
+      <div class="sec-tag">Why Choose FORGE</div>
+      <h2 class="sec-h">NOT JUST A GYM.<br>A PLACE WHERE <span class="o">CHANGE HAPPENS.</span></h2>
+      <p class="sec-sub" style="margin-top:14px">Thousands of Melbourne members have made FORGE their training home.
+        Here's what makes us different — and why it matters for your results.</p>
+    </div>
+
+    <div class="reasons-list">
+      <div class="reason-row">
+        <div class="r-num">01</div>
+        <div class="r-body">
+          <h3>24/7 Access — Because Life Doesn't Work 9 to 5</h3>
+          <p>Elite members get full 24/7 keycard access to the entire facility. Whether you train at 5am before work or
+            11pm after your shift — FORGE is open. No more gym hours limiting your routine.</p>
+        </div>
+      </div>
+      <div class="reason-row">
+        <div class="r-num">02</div>
+        <div class="r-body">
+          <h3>Coaches Who Actually Coach — Not Just Watch</h3>
+          <p>Our trainers are on the floor during every class — correcting form, scaling exercises, pushing you harder.
+            We cap group classes at 14 people maximum so nobody gets lost in the crowd. This isn't a class you survive;
+            it's one that transforms you.</p>
+        </div>
+      </div>
+      <div class="reason-row">
+        <div class="r-num">03</div>
+        <div class="r-body">
+          <h3>$800,000 in Commercial-Grade Equipment</h3>
+          <p>Eleiko barbells and plates, Life Fitness cardio machines, a dedicated functional rig, 28 Keiser indoor
+            bikes, heavy bags, and a full recovery zone with infrared sauna and compression boots. Broken equipment gets
+            repaired same-day — always.</p>
+        </div>
+      </div>
+      <div class="reason-row">
+        <div class="r-num">04</div>
+        <div class="r-body">
+          <h3>Nutrition Guidance Included — Not an Upsell</h3>
+          <p>All Elite and Performance members receive access to our in-house nutrition coach for a monthly check-in. We
+            believe training without nutrition guidance is like driving with one hand on the wheel. Our approach is
+            practical and sustainable — no crash diets.</p>
+        </div>
+      </div>
+      <div class="reason-row">
+        <div class="r-num">05</div>
+        <div class="r-body">
+          <h3>Progress Tracking That Keeps You Accountable</h3>
+          <p>Every member gets a FORGE profile tracking strength benchmarks, body composition measurements via InBody
+            scan, class attendance, and programme milestones. Your data is visible on the app so you can see real
+            month-over-month progress.</p>
+        </div>
+      </div>
+      <div class="reason-row">
+        <div class="r-num">06</div>
+        <div class="r-body">
+          <h3>A Community That Actually Shows Up</h3>
+          <p>Our member community is genuinely supportive — not performative. Members know each other by name, celebrate
+            milestones, and hold each other accountable. We run quarterly challenges, social events, and charity fitness
+            drives.</p>
+        </div>
+      </div>
+      <div class="reason-row">
+        <div class="r-num">07</div>
+        <div class="r-body">
+          <h3>No Lock-In. No Bull. Cancel Anytime.</h3>
+          <p>We don't trap you in 12-month contracts. No joining fees. No high-pressure sales. We believe if we deliver
+            results, you'll stay. Our average member retention rate is 14 months — well above the industry average of 5.
+          </p>
+        </div>
+      </div>
+      <div class="reason-row">
+        <div class="r-num">08</div>
+        <div class="r-body">
+          <h3>7-Day Free Trial — Judge Us Before You Commit</h3>
+          <p>New members get 7 days of unlimited access completely free. Train every day that week. Attend every class.
+            Then decide. No credit card required to start. We're confident enough in what we've built to let the
+            experience do the talking.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-cell"><span class="proof-n">2,400+</span>
+        <div class="proof-l">Active Members</div>
+      </div>
+      <div class="proof-cell"><span class="proof-n">$800K+</span>
+        <div class="proof-l">Equipment Investment</div>
+      </div>
+      <div class="proof-cell"><span class="proof-n">14 mo</span>
+        <div class="proof-l">Avg. Member Retention</div>
+      </div>
+      <div class="proof-cell"><span class="proof-n">4.9★</span>
+        <div class="proof-l">Google Rating</div>
+      </div>
+    </div>
+
+    <!-- Split image + equipment tags -->
+    <div class="split">
+      <div class="split-body" style="background:var(--black)">
+        <div class="sec-tag">State of the Art</div>
+        <h2 class="sec-h">ELITE FACILITY & <span class="o">EQUIPMENT</span></h2>
+        <p class="sec-sub">Over 1,200 sqm of training space across dedicated zones — no queuing, no crowded floors, no
+          compromises.</p>
+        <div class="equip-tags" style="margin-top:28px">
+          <span class="etag">Eleiko Barbells & Plates</span>
+          <span class="etag">28 Keiser Spin Bikes</span>
+          <span class="etag">Life Fitness Cardio</span>
+          <span class="etag">Functional Rig</span>
+          <span class="etag">Heavy Bags</span>
+          <span class="etag">Infrared Sauna</span>
+          <span class="etag">InBody 570 Scanner</span>
+          <span class="etag">Recovery Zone</span>
+          <span class="etag">Compression Boots</span>
+          <span class="etag">Cable Machines ×12</span>
+        </div>
+        <button class="btn-fire" style="margin-top:36px;" onclick="go('booking',null)">Claim 7-Day Free Trial</button>
+      </div>
+      <div class="split-img">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop"
+          alt="FORGE Equipment" style="height:100%;min-height:500px">
+      </div>
+    </div>
+
+    <div class="fire-banner">
+      <div>
+        <h2>START TODAY.<br>RESULTS IN 30 DAYS.</h2>
+        <p>Guaranteed progress with our FORGE Results Promise — or your first month is free.</p>
+      </div>
+      <button class="btn-dark" onclick="go('booking',null)">Book Free Trial →</button>
+    </div>
+
+    <footer>
+      <div class="foot-grid">
+        <div><span class="foot-logo">FOR<span>G</span>E</span>
+          <div class="foot-desc">Premium training studio. 42 Industrial Ave, Fitzroy VIC. Open 24/7 for members.</div>
+        </div>
+        <div class="foot-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#">Strength</a></li>
+            <li><a href="#">HIIT</a></li>
+            <li><a href="#">Boxing</a></li>
+            <li><a href="#">Yoga</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Members</h4>
+          <ul>
+            <li><a href="#">Plans</a></li>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">FORGE App</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">42 Industrial Ave, Fitzroy</a></li>
+            <li><a href="tel:+61394110042">(03) 9411 0042</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2025 FORGE Fitness Pty Ltd.</p>
+        <div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </footer>
+  </div><!-- /whypick -->
+
+
+  <!-- ══════════════════════════ PROGRAMS ══════════════════════════ -->
+  <div id="services" class="page">
+    <div class="svcs-hero">
+      <div class="svcs-hero-bg"></div>
+      <div class="sec-tag">Our Programs</div>
+      <h2 class="sec-h">EVERY PROGRAM.<br>ONE <span class="o">PURPOSE.</span></h2>
+      <p class="sec-sub">Whether you're losing your first kilogram or chasing a powerlifting PB — our programmes deliver
+        measurable outcomes, not just something to do.</p>
+    </div>
+
+    <div class="svc-row-item">
+      <div class="svc-row-img">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&q=80&auto=format&fit=crop"
+          alt="Strength">
+      </div>
+      <div class="svc-row-body">
+        <div class="sec-tag">Program 01</div>
+        <h2>Strength & Powerlifting</h2>
+        <p>Our structured strength programme uses periodised training — linear, wave, and block — to progressively build
+          your squat, bench, and deadlift. Suitable for beginners and competitive powerlifters alike.</p>
+        <ul>
+          <li>Technique assessment in first session</li>
+          <li>Percentage-based loading personalised to you</li>
+          <li>Peaking programmes for competitions</li>
+          <li>Small group coaching — max 8 per session</li>
+        </ul>
+        <div class="svc-price">Included — Elite & Performance Plans</div>
+      </div>
+    </div>
+
+    <div class="svc-row-item reverse">
+      <div class="svc-row-img">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=80&auto=format&fit=crop"
+          alt="HIIT">
+      </div>
+      <div class="svc-row-body">
+        <div class="sec-tag">Program 02</div>
+        <h2>HIIT & Metabolic Conditioning</h2>
+        <p>30-minute high-intensity sessions built around AMRAP, EMOM, and Tabata formats. Designed to maximise caloric
+          burn, improve VO2 max, and build a base of functional fitness for everyday life.</p>
+        <ul>
+          <li>Heart rate zone training with monitors available</li>
+          <li>Varied formats — never the same session twice</li>
+          <li>Scaled options for all fitness levels</li>
+          <li>Post-session breakdown via FORGE app</li>
+        </ul>
+        <div class="svc-price">From $39/month — Starter Plan</div>
+      </div>
+    </div>
+
+    <div class="svc-row-item">
+      <div class="svc-row-img">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80&auto=format&fit=crop"
+          alt="Personal Training">
+      </div>
+      <div class="svc-row-body">
+        <div class="sec-tag">Program 03</div>
+        <h2>1-on-1 Personal Training</h2>
+        <p>Completely individualised sessions with one of our certified coaches. Whether you have specific goals,
+          injuries to work around, or simply want faster results — PT delivers precision that group classes can't.</p>
+        <ul>
+          <li>Initial movement screen & goal-setting session</li>
+          <li>Custom programming between sessions</li>
+          <li>Nutrition integration and tracking support</li>
+          <li>Weekly check-ins via the FORGE app</li>
+        </ul>
+        <div class="svc-price">From $85/session · Packs available</div>
+      </div>
+    </div>
+
+    <div class="svc-row-item reverse">
+      <div class="svc-row-img">
+        <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=700&q=80&auto=format&fit=crop"
+          alt="Boxing">
+      </div>
+      <div class="svc-row-body">
+        <div class="sec-tag">Program 04</div>
+        <h2>Boxing & Combat Fitness</h2>
+        <p>Technical boxing combined with serious conditioning. Learn real punching technique, footwork, and
+          combinations while burning up to 700 calories per session. No sparring required — ever.</p>
+        <ul>
+          <li>Beginner-friendly — gloves provided</li>
+          <li>Heavy bag circuits and pad work</li>
+          <li>Footwork and defensive drills</li>
+          <li>12-round structure like real bouts</li>
+        </ul>
+        <div class="svc-price">Included — Elite & Performance Plans</div>
+      </div>
+    </div>
+
+    <div class="svc-row-item">
+      <div class="svc-row-img">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=700&q=80&auto=format&fit=crop"
+          alt="Yoga & Mobility">
+      </div>
+      <div class="svc-row-body">
+        <div class="sec-tag">Program 05</div>
+        <h2>Yoga & Mobility</h2>
+        <p>Recovery is training. Our yoga and active mobility sessions are designed specifically for athletes and
+          gym-goers — preventing injury, reducing soreness, and improving range of motion that makes every other session
+          better.</p>
+        <ul>
+          <li>Sports-specific mobility protocols</li>
+          <li>Guided breathwork and recovery techniques</li>
+          <li>Injury prevention focus — not just stretching</li>
+          <li>Morning and evening sessions available</li>
+        </ul>
+        <div class="svc-price">Included — All Plans</div>
+      </div>
+    </div>
+
+    <div class="fire-banner" style="margin-top:3px;">
+      <div>
+        <h2>START WITH 7 DAYS FREE.</h2>
+        <p>Full access to every programme. No card needed. No commitment.</p>
+      </div>
+      <button class="btn-dark" onclick="go('booking',null)">Book Free Trial →</button>
+    </div>
+
+    <footer>
+      <div class="foot-grid">
+        <div><span class="foot-logo">FOR<span>G</span>E</span>
+          <div class="foot-desc">Premium training studio. Fitzroy VIC. Open 24/7.</div>
+        </div>
+        <div class="foot-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#">Strength</a></li>
+            <li><a href="#">HIIT</a></li>
+            <li><a href="#">PT</a></li>
+            <li><a href="#">Boxing</a></li>
+            <li><a href="#">Yoga</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Members</h4>
+          <ul>
+            <li><a href="#">Plans</a></li>
+            <li><a href="#">Schedule</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">42 Industrial Ave, Fitzroy</a></li>
+            <li><a href="tel:+61394110042">(03) 9411 0042</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2025 FORGE Fitness Pty Ltd.</p>
+        <div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </footer>
+  </div><!-- /services -->
+
+
+  <!-- ══════════════════════════ BOOKING ══════════════════════════ -->
+  <div id="booking" class="page">
+    <div class="booking-layout">
+      <div class="bleft">
+        <div class="bleft-img"></div>
+        <div class="bleft-overlay"></div>
+        <div class="bleft-content">
+          <div>
+            <div class="sec-tag">Start Today</div>
+            <h2>CLAIM YOUR<br><span>FREE 7-DAY</span><br>TRIAL</h2>
+            <p>Walk in, train hard, see what FORGE is about. Full access to every class, coach, and piece of equipment —
+              7 days completely free.</p>
+            <div class="b-info-list">
+              <div class="b-info-item">
+                <div class="b-icon">📍</div>
+                <div>
+                  <h4>Location</h4><span>42 Industrial Avenue, Fitzroy VIC 3065<br>Free parking on-site · 5 min from
+                    Smith Street tram</span>
+                </div>
+              </div>
+              <div class="b-info-item">
+                <div class="b-icon">⏰</div>
+                <div>
+                  <h4>Opening Hours</h4><span>Reception Mon–Fri 6am–9pm · Sat–Sun 7am–5pm<br>24/7 member access via
+                    keycard</span>
+                </div>
+              </div>
+              <div class="b-info-item">
+                <div class="b-icon">📞</div>
+                <div>
+                  <h4>Call Us</h4><span>(03) 9411 0042 · info@forgefit.com.au</span>
+                </div>
+              </div>
+              <div class="b-info-item">
+                <div class="b-icon">🎯</div>
+                <div>
+                  <h4>What to Bring</h4><span>Workout gear and a goal. Towels and all equipment provided.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="avail-box">
+              <h4>This Week's Availability</h4>
+              <div class="avail-row"><span class="avail-day">Monday 28 Apr</span><span class="avbadge av-o">Open</span>
+              </div>
+              <div class="avail-row"><span class="avail-day">Tuesday 29 Apr</span><span class="avbadge av-f">2 spots
+                  left</span></div>
+              <div class="avail-row"><span class="avail-day">Wednesday 30 Apr</span><span class="avbadge av-x">Fully
+                  Booked</span></div>
+              <div class="avail-row"><span class="avail-day">Thursday 1 May</span><span class="avbadge av-o">Open</span>
+              </div>
+              <div class="avail-row"><span class="avail-day">Friday 2 May</span><span class="avbadge av-f">3 spots
+                  left</span></div>
+              <div class="avail-row"><span class="avail-day">Weekend</span><span class="avbadge av-o">Open</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bright">
+        <h3>BOOK YOUR FIRST SESSION</h3>
+        <div class="fg-row">
+          <div class="fg"><label>First Name</label><input type="text" id="ffn" placeholder="e.g. Alex"></div>
+          <div class="fg"><label>Last Name</label><input type="text" id="fln" placeholder="e.g. Carter"></div>
+        </div>
+        <div class="fg"><label>Email</label><input type="email" id="fem" placeholder="alex@email.com"></div>
+        <div class="fg"><label>Phone</label><input type="tel" id="fph" placeholder="04XX XXX XXX"></div>
+        <div class="fg">
+          <label>Age Range</label>
+          <select id="fage">
+            <option value="">— Select —</option>
+            <option>18–24</option>
+            <option>25–34</option>
+            <option>35–44</option>
+            <option>45–54</option>
+            <option>55+</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Primary Fitness Goal</label>
+          <div class="goal-chips">
+            <div class="gchip" onclick="tog(this)">Lose Weight</div>
+            <div class="gchip" onclick="tog(this)">Build Muscle</div>
+            <div class="gchip" onclick="tog(this)">Get Stronger</div>
+            <div class="gchip" onclick="tog(this)">More Energy</div>
+            <div class="gchip" onclick="tog(this)">Sport Performance</div>
+            <div class="gchip" onclick="tog(this)">General Fitness</div>
+          </div>
+        </div>
+        <div class="fg">
+          <label>First Class Interest</label>
+          <select id="finterest">
+            <option value="">— Choose a class —</option>
+            <option>Strength & Powerlifting</option>
+            <option>HIIT & Metabolic Conditioning</option>
+            <option>Boxing & Combat Fitness</option>
+            <option>Yoga & Mobility</option>
+            <option>Spin Cycling</option>
+            <option>Functional CrossFit</option>
+            <option>Just use the gym floor</option>
+          </select>
+        </div>
+        <div class="fg"><label>Preferred Visit Day</label><input type="date" id="fdate"></div>
+        <div class="fg">
+          <label>Preferred Time</label>
+          <div class="time-grid">
+            <div class="tslot" onclick="selT(this)">6:00 AM</div>
+            <div class="tslot" onclick="selT(this)">7:00 AM</div>
+            <div class="tslot" onclick="selT(this)">9:00 AM</div>
+            <div class="tslot" onclick="selT(this)">12:00 PM</div>
+            <div class="tslot" onclick="selT(this)">5:30 PM</div>
+            <div class="tslot" onclick="selT(this)">6:30 PM</div>
+            <div class="tslot" onclick="selT(this)">7:30 PM</div>
+            <div class="tslot" onclick="selT(this)">Weekend AM</div>
+            <div class="tslot" onclick="selT(this)">Flexible</div>
+          </div>
+        </div>
+        <div class="fg"><label>Anything We Should Know?</label><textarea id="fnotes"
+            placeholder="Injuries, medical conditions, experience level, or questions…"></textarea></div>
+        <button class="submit-btn" onclick="bookNow()">LOCK IN MY FREE TRIAL →</button>
+        <div class="book-success" id="bsuccess">
+          🔥 &nbsp;<strong>You're in!</strong> We'll contact you within 1 hour to confirm your first session. Check your
+          inbox for a welcome pack with everything you need before you arrive.
+        </div>
+        <p class="book-note">No credit card required. No automatic billing. Your 7-day trial is completely free. By
+          submitting you agree to receive one confirmation email from FORGE Fitness.</p>
+      </div>
+    </div>
+  </div><!-- /booking -->
+
+  <script>
+    function go(id, el) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      if (el) el.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+    function tog(el) { el.classList.toggle('on'); }
+    function selT(el) {
+      document.querySelectorAll('.tslot').forEach(t => t.classList.remove('on'));
+      el.classList.add('on');
+    }
+    function bookNow() {
+      const btn = document.querySelector('.submit-btn');
+      const s = document.getElementById('bsuccess');
+
+      // Required fields check
+      const req = ['ffn', 'fln', 'fem', 'fph', 'fage', 'finterest', 'fdate'];
+      let ok = true;
+      req.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) { el.style.borderColor = '#f05a1a'; ok = false; }
+        else el.style.borderColor = '';
+      });
+
+      if (!ok) { alert('Please fill in all required fields.'); return; }
+
+      // Collect selected time
+      const timeEl = document.querySelector('.tslot.on');
+      if (!timeEl) { alert('Please select a preferred time slot.'); return; }
+
+      // Collect goals (gchips)
+      const goals = Array.from(document.querySelectorAll('.gchip.on')).map(t => t.innerText).join(', ');
+
+      btn.textContent = 'SECURIING YOUR SPOT...';
+      btn.disabled = true;
+
+      const payload = {
+        fn: document.getElementById('ffn').value,
+        ln: document.getElementById('fln').value,
+        em: document.getElementById('fem').value,
+        ph: document.getElementById('fph').value,
+        age: document.getElementById('fage').value,
+        goals: goals,
+        interest: document.getElementById('finterest').value,
+        date: document.getElementById('fdate').value,
+        time: timeEl.innerText,
+        notes: document.getElementById('fnotes').value
+      };
+
+      // ⚠️ REPLACE WITH YOUR FORGE APPS SCRIPT URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxcI3trRwIpiRH0l9O7tZRntrfx0b0zIulkJ8UfP3n178FxgIicsXZFrN_Fz5TkkUJvQQ/exec';
+
+      if (scriptURL === 'YOUR_GYM_WEBAPP_URL_HERE') {
+        // Simulated success if no URL yet
+        setTimeout(() => {
+          btn.style.display = 'none';
+          s.classList.add('show');
+          s.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 800);
+        return;
+      }
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+      })
+        .then(r => {
+          btn.style.display = 'none';
+          s.classList.add('show');
+          s.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        })
+        .catch(e => {
+          console.error(e);
+          btn.textContent = 'LOCK IN MY FREE TRIAL →';
+          btn.disabled = false;
+          alert('Oops! Connection issue. Please try again or call us at (03) 9411 0042.');
+        });
+    }
+  </script>
 </body>
+
 </html>
