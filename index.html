@@ -1756,14 +1756,48 @@
       color: var(--orange);
     }
 
+    /* ════════ MOBILE MENU BUTTON ════════ */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .mobile-menu-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--white);
+    }
+
     /* RESPONSIVE */
     @media(max-width:960px) {
       nav {
         padding: 0 20px;
       }
 
+      .mobile-menu-btn {
+        display: block;
+      }
+
       .nav-links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(8, 8, 8, 0.98);
+        padding: 20px;
+        gap: 20px;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(240, 90, 26, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-links.open {
+        display: flex;
       }
 
       .hero-content,
@@ -1830,6 +1864,41 @@
         padding: 16px 20px;
       }
     }
+
+    @media(max-width:600px) {
+
+      .classes-grid,
+      .testi-grid,
+      .trainers-grid,
+      .plans-grid,
+      .photo-grid,
+      .hero-stats-bar,
+      .proof-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .sec-h {
+        font-size: 2.2rem;
+      }
+
+      .hero-stats-bar {
+        position: static;
+        border-top: none;
+      }
+
+      .hsb-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-content {
+        padding-bottom: 80px;
+      }
+    }
   </style>
 </head>
 
@@ -1838,7 +1907,12 @@
   <!-- ════ NAV ════ -->
   <nav>
     <div class="nav-logo">FOR<span>G</span>E</div>
-    <ul class="nav-links">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#" class="active" onclick="go('home',this)">Home</a></li>
       <li><a href="#" onclick="go('whypick',this)">Why FORGE</a></li>
       <li><a href="#" onclick="go('services',this)">Programs</a></li>
@@ -2876,6 +2950,20 @@
           alert('Oops! Connection issue. Please try again or call us at (03) 9411 0042.');
         });
     }
+
+    function toggleMobileMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('open');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+        }
+      });
+    });
   </script>
 </body>
 
