@@ -2897,6 +2897,16 @@
 
       if (!ok) { alert('Please fill in all required fields.'); return; }
 
+      // Date validation: ensure date is not in the past
+      const selectedDate = new Date(document.getElementById('fdate').value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Set to start of day for comparison
+      if (selectedDate < today) {
+        document.getElementById('fdate').style.borderColor = '#f05a1a';
+        alert('Please select a current or future date for your appointment.');
+        return;
+      }
+
       // Collect selected time
       const timeEl = document.querySelector('.tslot.on');
       if (!timeEl) { alert('Please select a preferred time slot.'); return; }
@@ -2963,6 +2973,12 @@
           navLinks.classList.remove('open');
         }
       });
+    });
+
+    // Set minimum date for appointment to today
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('fdate').setAttribute('min', today);
     });
   </script>
 </body>
